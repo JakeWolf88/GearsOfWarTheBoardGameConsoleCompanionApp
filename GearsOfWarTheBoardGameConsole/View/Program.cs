@@ -15,7 +15,7 @@ void MainMenu()
     Console.WriteLine(@"                    /   \  ____/ __ \\__  \\_  __ \/  ___/  /   |   \   __\  \   \/\/   /\__  \\_  __ \   |    |   |  |  \_/ __ \   |    |  _//  _ \__  \\_  __ \/ __ |  /   \  ___\__  \  /     \_/ __ \   ");
     Console.WriteLine(@"                    \    \_\  \  ___/ / __ \|  | \/\___ \  /    |    \  |     \        /  / __ \|  | \/   |    |   |   Y  \  ___/   |    |   (  <_> ) __ \|  | \/ /_/ |  \    \_\  \/ __ \|  Y Y  \  ___/   ");
     Console.WriteLine(@"                    \______  /\___  >____  /__|  /____  > \_______  /__|      \__/\  /  (____  /__|       |____|   |___|  /\___  >  |______  /\____(____  /__|  \____ |   \______  (____  /__|_|  /\___  >   ");
-    Console.WriteLine(@"                           \/     \/     \/           \/          \/               \/        \/                        \/     \/          \/           \/           \/          \/     \/      \/     \/    ");
+    Console.WriteLine(@"                           \/     \/     \/           \/          \/               \/        \/                         \/     \/          \/           \/           \/          \/     \/      \/     \/    ");
     Console.WriteLine(@"                                                             _________                            .__           _________                                    .__                                             ");
     Console.WriteLine(@"                                                             \_   ___ \  ____   ____   __________ |  |   ____   \_   ___ \  ____   _____ ___________    ____ |__| ____   ____                                 ");
     Console.WriteLine(@"                                                             /    \  \/ /  _ \ /    \ /  ___/  _ \|  | _/ __ \  /    \  \/ /  _ \ /     \\____ \__  \  /    \|  |/  _ \ /    \                                ");
@@ -58,29 +58,33 @@ void NewGame()
     Console.WriteLine("\n \n Select Your Mission: \n");
     Console.WriteLine("1- Emergence");
     Console.WriteLine("2- China Shop");
-    Console.WriteLine("3- Emergence Hive");
-    Console.WriteLine("4- Scattered Roadblocks");
-    Console.WriteLine("5- Horde Mode");
+    Console.WriteLine("3- Belly Of The Beast");
+    Console.WriteLine("4- Roadblocks");
+    Console.WriteLine("5- Scattered");
+    Console.WriteLine("6- Hive");
+    Console.WriteLine("7- Horde Mode");
     Console.WriteLine("\nMission Pack 1:");
-    Console.WriteLine("7- The Showdown");
-    Console.WriteLine("8- Search For The Stranded");
-    Console.WriteLine("9- Back To Main Menu\n");
+    Console.WriteLine("8- The Showdown");
+    Console.WriteLine("9- Search For The Stranded");
+    Console.WriteLine("10- Back To Main Menu\n");
 
     switch (Console.ReadLine())
     {
         case "1":
         cancellationTokenSource.Cancel();
         musicThread.Join();
-        SetupAudio(JacintoPrisonString);
         EmergenceMissionOne missionStartOne = new(playerCount, 1);
         break;
         case "2":
         cancellationTokenSource.Cancel();
         musicThread.Join();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TombsOfTheUnknowns.mp3");
         ChinaShopMissionTwo missionStartTwo = new(playerCount, 2);
         break;
         case "3":
+        cancellationTokenSource.Cancel();
+        musicThread.Join();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
+        BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
         break;
         case "4":
         break;
@@ -132,36 +136,40 @@ void TerminateMisison()
     }
 }
 
-void PlayMusicOnNewthread(CancellationToken cancellationToken, string trackFilePath)
+async Task PlayMusicOnNewthread(string audioFilePath, CancellationToken cancellationToken)
+{
+    while (!cancellationToken.IsCancellationRequested)
     {
-        // Path to the audio file
-        string audioFilePath = trackFilePath;
-
-        // Create a WaveOutEvent for audio playback
-        using (WaveOutEvent waveOut = new WaveOutEvent())
+        using (var waveOut = new WaveOutEvent())
+        using (var audioFileReader = new AudioFileReader(audioFilePath))
         {
-            // Create a WaveFileReader to read the audio file
-            using (Mp3FileReader reader = new (audioFilePath))
+            waveOut.Init(audioFileReader);
+
+            // TaskCompletionSource to signal completion of playback
+            var playbackCompleted = new TaskCompletionSource<bool>();
+
+            // Hook up the PlaybackStopped event
+            waveOut.PlaybackStopped += (sender, eventArgs) =>
             {
-                // Initialize WaveOutEvent with WaveFileReader
-                waveOut.Init(reader);
+                // When playback is stopped, set the TaskCompletionSource result
+                playbackCompleted.SetResult(true);
+            };
 
-                // Start audio playback
-                waveOut.Play();
+            // Start playback
+            waveOut.Play();
 
-                // Wait for cancellation request or end of audio playback
-                while (!cancellationToken.IsCancellationRequested && waveOut.PlaybackState == PlaybackState.Playing)
-                {
-                    Thread.Sleep(100); // Sleep for a short duration before checking cancellation
-                }
-                // Stop audio playback if it's still playing
-                if (waveOut.PlaybackState == PlaybackState.Playing)
-                {
-                    waveOut.Stop();
-                }
+            // Wait for playback to complete or cancellation to be requested
+            await Task.WhenAny(playbackCompleted.Task, Task.Delay(-1, cancellationToken));
+
+            // If cancellation is requested, stop playback
+            if (cancellationToken.IsCancellationRequested)
+            {
+                waveOut.Stop();
+                return;
             }
         }
     }
+}
 
 int SelectPlayerCount()
 {
@@ -196,7 +204,7 @@ void SetupAudio(string audioLocation)
 {
     cancellationTokenSource = new();
     cancellationToken = cancellationTokenSource.Token;
-    musicThread = new Thread(() => PlayMusicOnNewthread(cancellationToken, audioLocation));
+    musicThread = new Thread(async () => await PlayMusicOnNewthread(audioLocation, cancellationToken));
     musicThread.Start();
 }
 

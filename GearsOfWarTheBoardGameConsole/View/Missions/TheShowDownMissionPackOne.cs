@@ -13,6 +13,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         _isGameStillGoing = true;
         _stageNumber = 1;
         CreateLocationCardDeck();
+        DisplayLocationCardDeck(1);
         StartMission();
     }
 
@@ -150,7 +151,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
 
         //TODO: Press Y to Continue
-        DisplayLocationCardDeck(1);
         CreateLocustAiCardDeck(2);
     }
     private void MissionEnd()

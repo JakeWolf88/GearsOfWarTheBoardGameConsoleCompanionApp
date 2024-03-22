@@ -11,6 +11,8 @@ class EmergenceMissionOne : GearsOfWarMission
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
         _isGameStillGoing = true;
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\JacintoPrison.mp3");
+        MissionSpecifics();
         CreateLocationCardDeck();
         StartMission();
     }
@@ -155,11 +157,15 @@ class EmergenceMissionOne : GearsOfWarMission
         }
         Console.WriteLine("\nThen move each Wretch 2 areas towards the nearest COG");
         Console.WriteLine("and each Drone 1 area towards the nearest COG");
+        CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\AttackOfTheDrones.mp3");
+
 
         //TODO: Press Y to Continue
     }
     private void MissionEnd()
     {
+        CancellationTokenSource.Cancel();
         Console.WriteLine("\nFenix: What are you doing here?");
         Console.WriteLine("Santiago: Getting you out. Here put this on.");
         Console.WriteLine("Fenix: You could get into a lot of trouble for doing this.");
@@ -170,5 +176,66 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("Fenix: Is that right?");
         Console.WriteLine("Santiago Welcome back to the army soldier\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+    }
+
+    private void MissionSpecifics()
+    {
+        Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+            break;
+            case "N":
+            return;
+            default:
+            MissionSpecifics();
+            break;
+        }
+        Console.WriteLine("\nEMERGENCE\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Maps Size: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("Small\n");
+        Console.WriteLine("This Mission sends COG players into the heart of danger");
+        Console.WriteLine("to close an emergence hoe in the middle of COG territory.");
+        Console.WriteLine("Players must work together to close this hole and keep");
+        Console.WriteLine("the Locust horde at bay.\n");
+        Console.WriteLine("The mission is recommended when playing Gears of War:");
+        Console.WriteLine("The Board Game for the first time\n");
+        Console.WriteLine("RULE CLARIFICATIONS:");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Spawning Locust figures: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("During setup, Locust");
+        Console.WriteLine("\tfigures are spawned before any emergence holes");
+        Console.WriteLine("\tare sealed from the mission card's special ability.\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Grenades and Sealing: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("The stage 1 objective");
+        Console.WriteLine("\trequires players to use a Bolo Grenade to seal the");
+        Console.WriteLine("\tfinal emergence hole. If a player runs out of grenade");
+        Console.WriteLine("\ttokens, he can use map tile 12A's equipment\n");
+        Console.WriteLine("\tThe stage 1 Mission card states that when activating");
+        Console.WriteLine("\tthis equipment, the Location card is not discarded. It");
+        Console.WriteLine("\tmay be actived again on a future turn.\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Stage 2 Spawning: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("During stage 2, Locust figures");
+        Console.WriteLine("\tcannot be spawned. If an AI card would spawn");
+        Console.WriteLine("\tLocust figures, it is discarded (without resolving the");
+        Console.WriteLine("\tcard) and a new AI card is drawn\n");
+
+        Console.WriteLine("Press Y to contine");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+            break;
+            default:
+            MissionSpecifics();
+            break;
+        }
+        
     }
 }

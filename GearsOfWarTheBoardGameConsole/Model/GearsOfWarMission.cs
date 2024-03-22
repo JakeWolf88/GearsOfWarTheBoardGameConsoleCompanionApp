@@ -6,13 +6,18 @@ public abstract class GearsOfWarMission
     private int _playerInterator;
     private bool _isLocustPcPlaying;
     private int _numberOfPlayers;
+    //private CancellationTokenSource cancellationTokenSource;
+    private CancellationToken cancellationToken;
+    private AudioPlayer _audioPlayer;
+    private Thread musicThread;
+
 
     public GearsOfWarMission(int numberOfPlayers, int missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
-        _playerInterator = 1;
         _missionNumber = missionNumber;
-
+        _audioPlayer = new();
+        _playerInterator = 1;
     }
 
     public bool IsLocustPcPlaying { get; set; }
@@ -20,6 +25,9 @@ public abstract class GearsOfWarMission
     public List<LocustAiCard> MissionLocustAiCardDeck { get; set; }
     
     public List<LocationCard> MissionLocationCardDeck { get; set; }
+
+    public CancellationTokenSource CancellationTokenSource { get; set; }
+
 
 
     public void SetupMission()
@@ -73,7 +81,7 @@ public abstract class GearsOfWarMission
 
     public void DisplayLocationCardDeck(int levelStage)
     {
-         Console.WriteLine($"          STAGE {levelStage} LOCATION SETUP: \n\n");
+         Console.WriteLine($"          Level {levelStage + 1} LOCATION SETUP: \n\n");
         foreach(LocationCard mission in _missionLocationCardDeck[levelStage])
         {
             Console.WriteLine($"      -------------");
@@ -160,7 +168,17 @@ public abstract class GearsOfWarMission
     }
 
 
-
+    public void SetupAudio(string audioLocation)
+    {
+        if (musicThread is not null)
+        {
+            musicThread.Join();
+        }
+        CancellationTokenSource = new();
+        cancellationToken = CancellationTokenSource.Token;
+        musicThread = new Thread(async () => await _audioPlayer.PlayAudio(audioLocation, cancellationToken));
+        musicThread.Start();
+    }
 
 
 

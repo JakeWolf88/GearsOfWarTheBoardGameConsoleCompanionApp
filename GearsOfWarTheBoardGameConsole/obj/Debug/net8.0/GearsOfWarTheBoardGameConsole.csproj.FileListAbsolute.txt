@@ -20,3 +20,4 @@ C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Debug\net8.0\NAudio.Wa
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Debug\net8.0\NAudio.WinMM.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.csproj.AssemblyReference.cache
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.csproj.CopyComplete
+C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.sourcelink.json

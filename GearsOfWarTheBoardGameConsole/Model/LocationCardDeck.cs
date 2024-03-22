@@ -16,6 +16,9 @@ public class LocationCardDeck
             case 2:
             PopulateMissionTwoCards();
             break;
+            case 3:
+            PopulateMissionThreeCards();
+            break;
             case 7:
             PopulateMissionSevenCards();
             break;
@@ -110,6 +113,30 @@ public class LocationCardDeck
 
         List<LocationCard> temp3 = new();
         temp3.Add(_locationCardDeck["17A"]);
+        temp4.Add(temp3);
+        MissionLocationCardDeck = temp4;
+    }
+
+    private void PopulateMissionThreeCards()
+    {
+        List<List<LocationCard>> temp4 = new();
+        List<LocationCard> temp = new();
+        temp.Add(_locationCardDeck["1B"]);
+        temp.Add(_locationCardDeck["3B"]);
+        temp.Add(_locationCardDeck["10B"]);
+        temp.Add(_locationCardDeck["11B"]);
+        temp4.Add(temp);
+
+        List<LocationCard> temp2 = new();
+        temp2.Add(_locationCardDeck["2B"]);
+        temp2.Add(_locationCardDeck["12B"]);
+        temp2.Add(_locationCardDeck["16B"]);
+        temp4.Add(temp2);
+
+        List<LocationCard> temp3 = new();
+        temp3.Add(_locationCardDeck["5B"]);
+        temp3.Add(_locationCardDeck["6B"]);
+        temp3.Add(_locationCardDeck["13B"]);
         temp4.Add(temp3);
         MissionLocationCardDeck = temp4;
     }
