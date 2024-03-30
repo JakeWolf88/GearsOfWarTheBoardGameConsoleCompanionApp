@@ -197,7 +197,7 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write("Small\n");
         Console.WriteLine("This Mission sends COG players into the heart of danger");
-        Console.WriteLine("to close an emergence hoe in the middle of COG territory.");
+        Console.WriteLine("to close an emergence hole in the middle of COG territory.");
         Console.WriteLine("Players must work together to close this hole and keep");
         Console.WriteLine("the Locust horde at bay.\n");
         Console.WriteLine("The mission is recommended when playing Gears of War:");
@@ -212,8 +212,8 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@ Grenades and Sealing: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("The stage 1 objective");
-        Console.WriteLine("\trequires players to use a Bolo Grenade to seal the");
+        Console.Write("The stage 1 objective ");
+        Console.WriteLine("requires players to use a Bolo Grenade to seal the");
         Console.WriteLine("\tfinal emergence hole. If a player runs out of grenade");
         Console.WriteLine("\ttokens, he can use map tile 12A's equipment\n");
         Console.WriteLine("\tThe stage 1 Mission card states that when activating");
@@ -222,8 +222,8 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@ Stage 2 Spawning: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("During stage 2, Locust figures");
-        Console.WriteLine("\tcannot be spawned. If an AI card would spawn");
+        Console.Write("During stage 2, Locust figures ");
+        Console.WriteLine("cannot be spawned. If an AI card would spawn");
         Console.WriteLine("\tLocust figures, it is discarded (without resolving the");
         Console.WriteLine("\tcard) and a new AI card is drawn\n");
 

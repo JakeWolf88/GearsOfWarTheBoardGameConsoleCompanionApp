@@ -158,7 +158,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("See Berserker enemy card\n");
         Console.WriteLine("OBJECTIVE: The Berserker moves");
         Console.WriteLine("into the map exit");
-        Console.WriteLine("area of level 1.");
+        Console.WriteLine("area of level 1.\n");
 
     }
 
@@ -210,6 +210,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
     }
     private void MissionEnd()
     {
+        CancellationTokenSource.Cancel();
         Console.WriteLine("\nThe Bersker howls in rage as the imulsion beam rips her apart.");
         Console.WriteLine("\"Fenix: Hey Cole, Baird - It's all clear.\"\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
@@ -245,21 +246,22 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.Write("Since there is only one\n"); 
         Console.WriteLine("\tBerserker figure, additional Locust \"C\" figures");
         Console.WriteLine("\tcannot spawn. If a Location or AI card would spawn");
-        Console.WriteLine("\ta Locust \"C\", instead spawn one Wretch.\n");
+        Console.WriteLine("\ta Locust \"C\", instead spawn one Drone. If all Drones");
+        Console.WriteLine("\tare in play, instead spawn one Wretch.\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@ Bersker Attacks: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("AI cards someties require the"); 
+        Console.Write("AI cards someties require the "); 
         Console.WriteLine("Bersker to attack each figure in it's area. Such");
         Console.WriteLine("\tattacks are resolved like area attacks. The attack");
         Console.WriteLine("\tdice are rolled once and each defending figure rolls");
-        Console.WriteLine("\tit's owndefense dice. These attacks affect both");
+        Console.WriteLine("\tit's own defense dice. These attacks affect both");
         Console.WriteLine("\tLocust and COG figures.\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@ Berserker Constant Ability: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("The Berserker's"); 
-        Console.WriteLine("\tconstant ability moves it one space toward a");
+        Console.Write("The Berserker's "); 
+        Console.WriteLine("constant ability moves it one space toward a");
         Console.WriteLine("\tCOG each time the COG attacks (even when using");
         Console.WriteLine("\ta Lancer Assault Rifle's constant ability). This");
         Console.WriteLine("\thappens immediately after resolving the attack,");
@@ -271,7 +273,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.Write("The Berserker is the");
         Console.WriteLine("\tonly enemy that can be wounded twice (see page");
         Console.WriteLine("\t17). The Bersker may only be attacked with the");
-        Console.WriteLine("\tHammer of Daw (found on map tile 17A) unless it");
+        Console.WriteLine("\tHammer of Dawn (found on map tile 17A) unless it");
         Console.WriteLine("\thas already been wounded\n");
 
         Console.WriteLine("Press Y to contine");

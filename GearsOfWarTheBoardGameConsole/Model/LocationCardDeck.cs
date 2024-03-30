@@ -51,7 +51,7 @@ public class LocationCardDeck
         _locationCardDeck.Add("4A", new LocationCard("4A", "WEAPON", "Discard this card and draw\n 2 Random Weapon cards.\n Keep 1 (with 2 ammo)\n and discard the other.", new List<string>{"C","AC","BC","ABC"}));
         _locationCardDeck.Add("5A", new LocationCard("5A", "", "", new List<string>{"A","B","AB","AAB"}));
         _locationCardDeck.Add("6A", new LocationCard("6A", "", "", new List<string>{"A","B","AA","AAC"}));
-        _locationCardDeck.Add("7A", new LocationCard("7A", "AMMUNITION", "Discard this ard and gain\n up to 3 ammo tokens.\n Place these tokens on any\n of your Wapon cards.", new List<string>{"C","AC","BC","ABC"}));
+        _locationCardDeck.Add("7A", new LocationCard("7A", "AMMUNITION", "Discard this card and gain\n up to 3 ammo tokens.\n Place these tokens on any\n of your Weapon cards.", new List<string>{"C","AC","BC","ABC"}));
         _locationCardDeck.Add("8A", new LocationCard("8A", "", "", new List<string>{"A", "B", "AB", "AAB"}));
         _locationCardDeck.Add("9A", new LocationCard("9A", "", "", new List<string>{"A", "B", "AB", "AAB"}));
         _locationCardDeck.Add("10A", new LocationCard("10A", "GRENADES", "Discard this card and\n gain 1 grenade token.", new List<string>{"B", "C", "AC", "ABC"}));
