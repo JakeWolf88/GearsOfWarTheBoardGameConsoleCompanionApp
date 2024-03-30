@@ -1,4 +1,5 @@
-﻿using NAudio.Wave;
+﻿using GearsOfWarTheBoardGameConsole.View.Missions;
+using NAudio.Wave;
 Thread musicThread;
 CancellationTokenSource cancellationTokenSource;
 CancellationToken cancellationToken;
@@ -87,6 +88,8 @@ void NewGame()
         BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
         break;
         case "4":
+        musicThread.Join();
+        RoadBlocksMissionFour missionStartFour = new(playerCount, 4);
         break;
         case "5":
         break;

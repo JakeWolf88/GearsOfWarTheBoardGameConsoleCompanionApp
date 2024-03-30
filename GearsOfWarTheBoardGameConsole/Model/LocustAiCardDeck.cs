@@ -1,3 +1,4 @@
+
 class LocustAiCardDeck
 {
     private int _missionNumber;
@@ -19,6 +20,9 @@ class LocustAiCardDeck
             break;
             case 3:
             PopulateMissionThreeCards();
+            break;
+            case 4:
+            PopulateMissionFourCards();
             break;
             case 7:
             PopulateMissionSevenCards(stageNumber);
@@ -56,7 +60,7 @@ class LocustAiCardDeck
         
         //The Wretches
         _locustAiCardDeck.Add(8, new LocustAiCard("FOR EACH -WRETCH\n", "IF A COG FIGURE IS WITHIN 2 MOVEMENT:\n Move into his area\n and then attack him.\n\n", "OTHERWISE:\n Move 4 areas toward\n the nearest COG figure.\n\n If no Wretches in play,\n draw a new AI card.", true));
-        _locustAiCardDeck.Add(9, new LocustAiCard("FOR EACH -WRETCH\n", "IF A COG FIGURE IS WITHIN 4 OR LESS\n HEALTH IS WITHIN 3 MOVEMENT:\n Move into his area\n and then attack him.\n\n", "OTHERWISE:\n Move 2 areas toward the\n nearest COG figure not\n in cover.\n\n If no Wretches in play or\n all COG figures in cover,\n draw a new AI card.", true));
+        _locustAiCardDeck.Add(9, new LocustAiCard("FOR EACH -WRETCH\n", "IF A COG FIGURE WITH 4 OR LESS\n HEALTH IS WITHIN 3 MOVEMENT:\n Move into his area\n and then attack him.\n\n", "OTHERWISE:\n Move 2 areas toward the\n nearest COG figure not\n in cover.\n\n If no Wretches in play or\n all COG figures in cover,\n draw a new AI card.", true));
         _locustAiCardDeck.Add(10, new LocustAiCard("FOR EACH -WRETCH\n", "IF UNWOUNDED:\n Move 3 areas toward the\n nearest COG figure. Then\n attack a COG figure in the\n area that is not in cover\n (if able).\n\n", "OTHERWISE:\n Move into the nearest\n cover space and heal.\n\n If no Wretches in play or\n all COG figures in cover,\n draw a new AI card.", true));
         _locustAiCardDeck.Add(11, new LocustAiCard("FOR EACH -WRETCH\n", "IF A COG FIGURE IS WITHIN 4 OR LESS\n HEALTH IS WITHIN 3 MOVEMENT:\n Move into his area\n and then attack him.\n\n", "OTHERWISE:\n Move 2 areas toward the\n nearest COG figure not\n in cover.\n\n If no Wretches in play or\n all COG figures in cover,\n draw a new AI card.", true));
 
@@ -125,11 +129,6 @@ class LocustAiCardDeck
         _locustAiCardDeck.Add(117, new LocustAiCard("EVENT -GENERAL\n", "UNSTOPPABLE CHARGE:\n Each Locust moves 1 area toward then\n nearest COG,\n then each player spawns 1 Locust A at\n the emergence hole nearest him.\n\n Guards reactions may not be used while\n resolving this card.\n\n Then draw a new AI card", "", true));
         _locustAiCardDeck.Add(118, new LocustAiCard("EVENT -GENERAL\n", "UNSTOPPABLE CHARGE:\n Each Locust moves 1 area toward then\n nearest COG,\n then each player spawns 1 Locust A at\n the emergence hole nearest him.\n\n Guards reactions may not be used while\n resolving this card.\n\n Then draw a new AI card", "", true));
         _locustAiCardDeck.Add(119, new LocustAiCard("EVENT -GENERAL\n", "IF 1 OR MORE AMMO TOKEN IS ON THE MAP:\n Each player discards 1 ammo token\n from the map.\n\n Each player that could not discard an\n ammo token spawns 1 Locust A at the\n emergence hole nearest him.", "OTHERWISE:\n Spawn 1 Butcher at the map entrance.\n Each Locust then moves 1 area towards\n you.", true)); //Double check grammar
-
-
-
-
-
     }
 
     private void PopulateMissionOneCards()
@@ -192,7 +191,20 @@ class LocustAiCardDeck
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[25]);
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[26]);
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[27]);
+    }
 
+    private void PopulateMissionFourCards()
+    {
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[1]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[2]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[3]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[7]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[28]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[29]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[30]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
     }
 
     private void PopulateMissionSevenCards(int stageNumber)
@@ -237,20 +249,20 @@ class LocustAiCardDeck
     }
     private void PopulateMissionEightCards()
     {
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[119]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[101]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[102]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[103]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[104]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[105]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[106]); 
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[107]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[108]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[109]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[110]);  
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[111]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[112]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[119]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[101]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[102]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[103]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[104]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[105]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[106]); 
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[107]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[108]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[109]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[110]);  
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[111]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[112]);
     }
 }

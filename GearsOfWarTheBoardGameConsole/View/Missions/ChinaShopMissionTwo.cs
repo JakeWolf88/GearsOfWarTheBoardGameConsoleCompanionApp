@@ -201,7 +201,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("\n\"Control: Satelite is online.");
         Console.WriteLine("Fenix: Ok Dom, drop the Hammer!\"\n");
         Console.WriteLine("Unlock the level 3 Location deck and explore it.\n");
-        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
+        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
         CancellationTokenSource.Cancel();
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\MinhsDeath.mp3");
 

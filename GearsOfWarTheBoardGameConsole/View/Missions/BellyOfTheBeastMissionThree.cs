@@ -12,9 +12,11 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         _isStageOneActivated = true;
         _isGameStillGoing = true;
         _stageNumber = 1;
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
+        MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(1);
-        DisplayLocationCardDeck(2);
+        Console.WriteLine("\n\n\n\n");
         StartMission();
     }
 
@@ -46,7 +48,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("After setup, rotate the first map");
         Console.WriteLine("tile placed so it's entrance lines");
         Console.WriteLine("up with the entrance of the");
-        Console.WriteLine("s3cond map tile placed");
+        Console.WriteLine("second map tile placed");
 
         Console.WriteLine("Enemies");
         Console.WriteLine("A: Lambent Wretch");
@@ -141,7 +143,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("explored from any other door.");
         Console.WriteLine("OBJECTIVE: A player activates");
         Console.WriteLine("Location 13B's equipment");
-        Console.WriteLine("(found in level 3).");
+        Console.WriteLine("(found in level 3).\n");
     }
 
     private void StageTwoBanner()
@@ -151,7 +153,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("during each player's Locust");
         Console.WriteLine("Activation step");
         Console.WriteLine("Objective: The last card of the AI");
-        Console.WriteLine("deck has been resolved");
+        Console.WriteLine("deck has been resolved\n");
     }
 
     private void StageOneEnd()
@@ -160,15 +162,69 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("we'll get that elevator back online\n");
         Console.WriteLine("Shuffle the AI discard pile into the deck. Each player then");
         Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
-        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-
+        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+        DisplayLocationCardDeck(2);
         //TODO: Press Y to Continue
     }
 
     private void MissionEnd()
     {
+        CancellationTokenSource.Cancel();
         Console.WriteLine("\n\"Fenix: Control, this is Delta. We're clear. Resenator has been detonated.");
         Console.WriteLine("Control: You did it Marcus. Stand by. King ravens are en route.\"");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+    }
+
+    private void MissionSpecifics()
+    {
+        Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            case "N":
+                return;
+            default:
+                MissionSpecifics();
+                break;
+        }
+        Console.WriteLine("\nBELLY OF THE BEAST\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Maps Size: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("Medium\n");
+        Console.WriteLine("This mission sends the COG soldiers deep into the");
+        Console.WriteLine("mines, searching for the ideal location to place the sonic");
+        Console.WriteLine("resonator. This subsonice device will hopefully return a");
+        Console.WriteLine("detailed map of the Locust holows so that the COG can");
+        Console.WriteLine("destroy them once and for all whith the Lightmass bomb.\n");
+        Console.WriteLine("RULE CLARIFICATIONS:");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Setup: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("This mission is unique in that there are two\n");
+        Console.WriteLine("\texits to the map. After setting up the first level,");
+        Console.WriteLine("\tthe first map tile that was placed is rotated so that");
+        Console.WriteLine("\tit's entrance lines up with the second map tile's");
+        Console.WriteLine("\tentrance (see example below).\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Two Doors: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("During setup, two doors are placed on\n");
+        Console.WriteLine("\tthe map. The second door is placed on the exit of");
+        Console.WriteLine("\tthe first map tile and leads to the third level of the");
+        Console.WriteLine("\tmap (see example below). If an AI card spawns");
+        Console.WriteLine("\tfigures at the map exit, these figures are spawned");
+        Console.WriteLine("\tat the map exit nearestto the active player.\n");
+
+        Console.WriteLine("Press Y to contine");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            default:
+                MissionSpecifics();
+                break;
+        }
     }
 }
