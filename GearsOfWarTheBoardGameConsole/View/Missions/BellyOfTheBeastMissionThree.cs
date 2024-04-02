@@ -12,7 +12,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         _isStageOneActivated = true;
         _isGameStillGoing = true;
         _stageNumber = 1;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3"); //        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(1);
@@ -163,6 +163,8 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("Shuffle the AI discard pile into the deck. Each player then");
         Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+        CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
         CreateLocustAiCardDeck(1);
         DisplayLocationCardDeck(2);
         //TODO: Press Y to Continue

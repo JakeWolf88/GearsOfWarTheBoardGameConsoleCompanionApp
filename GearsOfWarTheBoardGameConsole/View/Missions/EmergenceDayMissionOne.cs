@@ -176,6 +176,7 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("Fenix: Is that right?");
         Console.WriteLine("Santiago Welcome back to the army soldier\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+        WaitForGameToEnd();
     }
 
     private void MissionSpecifics()
