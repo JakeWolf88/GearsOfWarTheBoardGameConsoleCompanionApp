@@ -112,7 +112,14 @@ public abstract class GearsOfWarMission
     {
         if (_missionLocustAiCardDeck.Count.Equals(0))
         {
-            Console.WriteLine("Re-shuffle deck");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"           ________                   __          _________.__              _____   _____ .__               .___  ");
+            Console.WriteLine(@"           \______ \    ____   ____  |  | __     /   _____/|  |__   __ __ _/ ____\_/ ____\|  |    ____    __| _/   ");
+            Console.WriteLine(@"            |    |  \ _/ __ \_/ ___\ |  |/ /     \_____  \ |  |  \ |  |  \\   __\ \   __\ |  |  _/ __ \  / __ |         ");
+            Console.WriteLine(@"            |    `   \\  ___/\  \___ |    <      /        \|   Y  \|  |  / |  |    |  |   |  |__\  ___/ / /_/ |          ");
+            Console.WriteLine(@"           /_______  / \___  >\___  >|__|_ \    /_______  /|___|  /|____/  |__|    |__|   |____/ \___  >\____ |        ");
+            Console.WriteLine(@"                   \/      \/     \/      \/            \/      \/                                   \/      \/       ");
+            Console.ForegroundColor = ConsoleColor.White;
             CreateLocustAiCardDeck(stageNumber);
             Shuffle(_missionLocustAiCardDeck);
         }
@@ -167,6 +174,19 @@ public abstract class GearsOfWarMission
         }
     }
 
+    public void WaitForGameToEnd()
+    {
+        Console.WriteLine("Press 'Y' to return to main menu");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                CancellationTokenSource.Cancel();
+                return;
+            default:
+                WaitForGameToEnd();
+                break;
+        }
+    }
 
     public void SetupAudio(string audioLocation)
     {

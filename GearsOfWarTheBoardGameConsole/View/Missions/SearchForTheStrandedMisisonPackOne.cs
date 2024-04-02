@@ -14,6 +14,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         _isStageOneActivated = true;
         _isGameStillGoing = true;
         _stageNumber = 1;
+        MissionSpecifics();
         CreateLocationCardDeck();
         StartMission();
     }
@@ -33,12 +34,12 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
     private void MissionSetup()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(@"                                   ___________                                                      "); 
-        Console.WriteLine(@"                                   \_   _____/ _____   ___________  ____   ____   ____   ____  ____         ");
-        Console.WriteLine(@"                                    |    __)_ /     \_/ __ \_  __ \/ ___\_/ __ \ /    \_/ ___\/ __ \          ");
-        Console.WriteLine(@"                                    |        \  Y Y  \  ___/|  | \/ /_/  >  ___/|   |  \  \__\  ___/          ");
-        Console.WriteLine(@"                                    /_______  /__|_|  /\___  >__|  \___  / \___  >___|  /\___  >___  >         ");
-        Console.WriteLine(@"                                            \/      \/     \/     /_____/      \/     \/     \/    \/          ");
+        Console.WriteLine(@"                                  _________                               .__         ___________                   _________  __                               .___           .___    "); 
+        Console.WriteLine(@"                                 /   _____/  ____  _____  _______   ____  |  |__      \_   _____/____ _______      /   _____/_/  |_ _______ _____     ____    __| _/ ____    __| _/      ");
+        Console.WriteLine(@"                                 \_____  \ _/ __ \ \__  \ \_  __ \_/ ___\ |  |  \      |    __) /  _ \\_  __ \     \_____  \ \   __\\_  __ \\__  \   /    \  / __ |_/ __ \  / __ |         ");
+        Console.WriteLine(@"                                 /        \\  ___/  / __ \_|  | \/\  \___ |   Y  \     |     \ (  <_> )|  | \/     /        \ |  |   |  | \/ / __ \_|   |  \/ /_/ |\  ___/ / /_/ |         ");
+        Console.WriteLine(@"                                /_______  / \___  >(____  /|__|    \___  >|___|  /     \___  /  \____/ |__|       /_______  / |__|   |__|   (____  /|___|  /\____ | \___  >\____ |          ");
+        Console.WriteLine(@"                                        \/      \/      \/             \/      \/          \/                             \/                     \/      \/      \/     \/      \/          ");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nMission Setup\n");
         Console.ForegroundColor = ConsoleColor.White;
@@ -219,5 +220,53 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("get to wipe me out! I've seen you go through ammo, and I'm");
         Console.WriteLine("not about to hand all this over!\"\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+    }
+
+    private void MissionSpecifics()
+    {
+        Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            case "N":
+                return;
+            default:
+                MissionSpecifics();
+                break;
+        }
+        Console.WriteLine("\nSEARCH FOR THE STRANDED\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Maps Size: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("Medium\n");
+        Console.WriteLine("This mission sends the COGS to rescue an isolated");
+        Console.WriteLine("Stranded-a surviving scavenger-and recover a");
+        Console.WriteLine("cache of ammo and supplies he is guarding.\n");
+        Console.WriteLine("RULE CLARIFICATIONS:\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ The Stranded: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("The Stranded is treated like a");
+        Console.WriteLine("\tCOG figure only for Locust activations. When");
+        Console.WriteLine("\tresolving Locust AI cards, the Stranded may be");
+        Console.WriteLine("\ttargeted and attacked by Locusts as if it were");
+        Console.WriteLine("\ta COG figure. However, the stranded cannot be");
+        Console.WriteLine("\tmoved into cover or affected by COG attacks.\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Ammo Tokens: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("Some card effects instruct players");
+        Console.WriteLine("\tto place ammo tokens on the map, These tokens");
+        Console.WriteLine("\tmay not be picked up or placed on Weapon cards.\n");
+        Console.WriteLine("Press Y to contine");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            default:
+                MissionSpecifics();
+                break;
+        }
     }
 }

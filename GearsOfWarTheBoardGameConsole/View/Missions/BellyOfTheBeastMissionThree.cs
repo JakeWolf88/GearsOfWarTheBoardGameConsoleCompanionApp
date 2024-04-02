@@ -12,7 +12,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         _isStageOneActivated = true;
         _isGameStillGoing = true;
         _stageNumber = 1;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3"); //        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(1);
@@ -32,7 +32,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         }
     }
 
-        private void MissionSetup()
+    private void MissionSetup()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(@"                            __________       .__  .__          ________   _____  ___________.__             __________                        __            ");
@@ -163,6 +163,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("Shuffle the AI discard pile into the deck. Each player then");
         Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+        CreateLocustAiCardDeck(1);
         DisplayLocationCardDeck(2);
         //TODO: Press Y to Continue
     }
@@ -170,9 +171,11 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\n\"Fenix: Control, this is Delta. We're clear. Resenator has been detonated.");
         Console.WriteLine("Control: You did it Marcus. Stand by. King ravens are en route.\"");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+        WaitForGameToEnd();
     }
 
     private void MissionSpecifics()
@@ -188,6 +191,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
+
         Console.WriteLine("\nBELLY OF THE BEAST\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -215,7 +219,28 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("\tthe first map tile and leads to the third level of the");
         Console.WriteLine("\tmap (see example below). If an AI card spawns");
         Console.WriteLine("\tfigures at the map exit, these figures are spawned");
-        Console.WriteLine("\tat the map exit nearestto the active player.\n");
+        Console.WriteLine("\tat the map exit nearest to the active player.\n");
+        Console.WriteLine("\t ----------------------3B--   -------(To Level 3)----1B-- ");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t(To Level 2)               | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|__________________________| |___________________________|");
+        Console.WriteLine("");
+        Console.WriteLine("\t ----------------------11B--   ---------------------10B-- ");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t(To Level 2)               | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|__________________________| |___________________________|");
 
         Console.WriteLine("Press Y to contine");
         switch (Console.ReadLine().ToUpper())

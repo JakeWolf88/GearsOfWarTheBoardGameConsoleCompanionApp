@@ -84,7 +84,6 @@ void NewGame()
         case "3":
         cancellationTokenSource.Cancel();
         musicThread.Join();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
         BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
         break;
         case "4":
@@ -93,50 +92,32 @@ void NewGame()
         break;
         case "5":
         break;
-        case "7":
-        cancellationTokenSource.Cancel();
-        musicThread.Join();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
-        TheShowDownMissionPackOne missionStartSeven = new(playerCount, 7);
-        break;
         case "8":
         cancellationTokenSource.Cancel();
         musicThread.Join();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
-        SearchForTheStrandedMisisonPackOne missionStartEight = new(playerCount, 8);
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
+        TheShowDownMissionPackOne missionStartSeven = new(playerCount, 8);
         break;
         case "9":
+        cancellationTokenSource.Cancel();
+        musicThread.Join();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
+        SearchForTheStrandedMisisonPackOne missionStartEight = new(playerCount, 9);
+        break;
+        case "10":
         MainMenu();
         break;
         default:
         NewGame();
         break;
     }
-    TerminateMisison();
+    MainMenu();
 }
 
 void LoadGame()
 {
     Console.WriteLine("Upcoming feature to be released in the future! \n \n");
     MainMenu();
-}
-
-void TerminateMisison()
-{
-    cancellationTokenSource.Cancel();
-    musicThread.Join();
-    Console.WriteLine("Would you like to save your progress Y/N? (Feature to be included later)");
-    switch (Console.ReadLine().ToUpper())
-    {
-        case "Y":
-        break;
-        case "N":
-        MainMenu();
-        break;
-        default:
-        TerminateMisison();
-        break;
-    }
 }
 
 async Task PlayMusicOnNewthread(string audioFilePath, CancellationToken cancellationToken)

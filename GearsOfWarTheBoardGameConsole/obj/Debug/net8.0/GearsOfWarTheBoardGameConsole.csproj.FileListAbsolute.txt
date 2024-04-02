@@ -19,5 +19,5 @@ C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Debug\net8.0\NAudio.Mi
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Debug\net8.0\NAudio.Wasapi.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Debug\net8.0\NAudio.WinMM.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.csproj.AssemblyReference.cache
-C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.csproj.CopyComplete
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfWarTheBoardGameConsole.sourcelink.json
+C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\obj\Debug\net8.0\GearsOfW.94756734.Up2Date

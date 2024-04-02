@@ -197,7 +197,6 @@ class ChinaShopMissionTwo : GearsOfWarMission
 
     private void StageTwoEnd()
     {
-
         Console.WriteLine("\n\"Control: Satelite is online.");
         Console.WriteLine("Fenix: Ok Dom, drop the Hammer!\"\n");
         Console.WriteLine("Unlock the level 3 Location deck and explore it.\n");
@@ -211,9 +210,11 @@ class ChinaShopMissionTwo : GearsOfWarMission
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nThe Bersker howls in rage as the imulsion beam rips her apart.");
         Console.WriteLine("\"Fenix: Hey Cole, Baird - It's all clear.\"\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+        WaitForGameToEnd();
     }
 
     private void MissionSpecifics()

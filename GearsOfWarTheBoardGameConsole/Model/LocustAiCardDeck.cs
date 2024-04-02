@@ -24,11 +24,11 @@ class LocustAiCardDeck
             case 4:
             PopulateMissionFourCards();
             break;
-            case 7:
-            PopulateMissionSevenCards(stageNumber);
-            break;
             case 8:
-            PopulateMissionEightCards();
+            PopulateMissionEightCards(stageNumber);
+            break;
+            case 9:
+            PopulateMissionNineCards();
             break;
             default:
             break;
@@ -207,7 +207,7 @@ class LocustAiCardDeck
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
     }
 
-    private void PopulateMissionSevenCards(int stageNumber)
+    private void PopulateMissionEightCards(int stageNumber)
     {
         if (stageNumber == 1)
         {
@@ -247,7 +247,7 @@ class LocustAiCardDeck
             
         }
     }
-    private void PopulateMissionEightCards()
+    private void PopulateMissionNineCards()
     {
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);

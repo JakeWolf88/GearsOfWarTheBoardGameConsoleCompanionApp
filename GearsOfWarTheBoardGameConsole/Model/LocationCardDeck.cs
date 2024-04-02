@@ -22,11 +22,11 @@ public class LocationCardDeck
             case 4:
             PopulateMissionFourCards();
             break;
-            case 7:
-            PopulateMissionSevenCards();
-            break;
             case 8:
             PopulateMissionEightCards();
+            break;
+            case 9:
+            PopulateMissionNineCards();
             break;
             default:
             break;
@@ -168,7 +168,7 @@ public class LocationCardDeck
         MissionLocationCardDeck = temp4;
     }
 
-    private void PopulateMissionSevenCards()
+    private void PopulateMissionEightCards()
     {
         List<List<LocationCard>> temp3 = new();
         List<LocationCard> temp = new();
@@ -185,7 +185,7 @@ public class LocationCardDeck
         MissionLocationCardDeck = temp3;
     }
 
-        private void PopulateMissionEightCards()
+        private void PopulateMissionNineCards()
     {
         List<List<LocationCard>> temp3 = new();
         List<LocationCard> temp = new();

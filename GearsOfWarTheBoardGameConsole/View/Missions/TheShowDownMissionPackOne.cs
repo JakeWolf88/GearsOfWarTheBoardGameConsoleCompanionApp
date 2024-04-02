@@ -5,6 +5,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     private int _stageNumber;
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
+    private bool _isStageThreeActivated;
     private bool _isGameStillGoing;
     public TheShowDownMissionPackOne(int numberOfPlayers, int missionNumber): base(numberOfPlayers, missionNumber)
     {
@@ -12,8 +13,8 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         _isStageOneActivated = true;
         _isGameStillGoing = true;
         _stageNumber = 1;
+        MissionSpecifics();
         CreateLocationCardDeck();
-        DisplayLocationCardDeck(1);
         StartMission();
     }
 
@@ -31,6 +32,16 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
 
     private void MissionSetup()
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"                             ___________.__                   _________.__                        .___                        ");
+        Console.WriteLine(@"                             \__    ___/|  |__    ____       /   _____/|  |__    ____ __  _  __ __| _/ ____ __  _  __ ____      ");
+        Console.WriteLine(@"                               |    |   |  |  \ _/ __ \      \_____  \ |  |  \  /  _ \\ \/ \/ // __ | /  _ \\ \/ \/ //    \       ");
+        Console.WriteLine(@"                               |    |   |   Y  \\  ___/      /        \|   Y  \(  <_> )\     // /_/ |(  <_> )\     /|   |  \      ");
+        Console.WriteLine(@"                               |____|   |___|  / \___  >    /_______  /|___|  / \____/  \/\_/ \____ | \____/  \/\_/ |___|  /       ");
+        Console.WriteLine(@"                                             \/      \/             \/      \/                     \/                    \/        ");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\nMission Setup\n");
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("\nMission Setup\n");
         Console.WriteLine("Special Rules:\n");
         Console.WriteLine("When setting up place the feral");
@@ -69,13 +80,33 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     {
         if (_isStageOneActivated)
         {
+            Console.WriteLine("\nHas the Berserker been killed Y/N?");
+
+            switch (Console.ReadLine().ToUpper())
+            {
+                case "Y":
+                    _isStageOneActivated = false;
+                    _isStageTwoActivated = true;
+                    _stageNumber = 2;
+                    DisplayLocationCardDeck(1);
+                    break;
+                case "N":
+                    break;
+                default:
+                    StageActivationPrompt();
+                    break;
+            }
+        }
+
+        if (_isStageTwoActivated)
+        {
             Console.WriteLine("\nHas level 2 been explored Y/N?");
 
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
-                _isStageOneActivated = false;
-                _isStageTwoActivated = true;
+                _isStageTwoActivated = false;
+                _isStageThreeActivated = true;
                 _stageNumber = 2;
                 StageOneEnd();
                 break;
@@ -87,14 +118,14 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
             }
         }
 
-        if (_isStageTwoActivated)
+        if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas General RAAM been killed Y/N?");
 
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
-                _isStageTwoActivated = false;
+                _isStageThreeActivated = false;
                 _isGameStillGoing = false;
                 MissionEnd();
                 break;
@@ -162,5 +193,85 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("guttural tongue.\n");
         Console.WriteLine("You have a feeling you'll be meeting again real soon...\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+    }
+
+    private void MissionSpecifics()
+    {
+        Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            case "N":
+                return;
+            default:
+                MissionSpecifics();
+                break;
+        }
+        Console.WriteLine("\nTHE SHOWDOWN\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Maps Size: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("Medium\n");
+        Console.WriteLine("This mission pits the COGs against two very");
+        Console.WriteLine("dangerous Locusts. First they must overcome a");
+        Console.WriteLine("savage Berserker, and then they must face off and");
+        Console.WriteLine("eradicate General RAAM himself!\n");
+        Console.WriteLine("RULE CLARIFICATIONS:\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Setup: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("In addition to their normal starting");
+        Console.WriteLine("\tWeapons, Grenades, and Ammo, each player also");
+        Console.WriteLine("\treceives a Scorcher Special Weapon card with no");
+        Console.WriteLine("\tammo tokens on it.\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Spawning Locust C: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("During setup, assume there");
+        Console.WriteLine("\tare no Locust \"C\" figures for spawning, Since there");
+        Console.WriteLine("\tis only one Feral Berserker figure and players only");
+        Console.WriteLine("\tuse one Boomer figure for General RAAM, Locust");
+        Console.WriteLine("\t\"C\" figures cannot spawn during this mission. If");
+        Console.WriteLine("\ta Location or AI card would spawn a Locust \"C\",");
+        Console.WriteLine("\tinstead spawn one Locust \"B\", If all Locust \"B\"");
+        Console.WriteLine("\tfigures are in play, spawn one Locust \"A\".\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Feral Bersker: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("If unwounded, the Feral");
+        Console.WriteLine("\tBerserker may only be dealt wounds by the");
+        Console.WriteLine("\tScorcher or Bolo Grenades. Once wounded, any");
+        Console.WriteLine("\tweapon type can be used to wound it\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ Resetting the AI Deck: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("Once Stage 1 has been");
+        Console.WriteLine("\tcompleted, the Locust AI deck is reset--all");
+        Console.WriteLine("\tButcher AI cards are removed from the Locust AI");
+        Console.WriteLine("\tdeck and discard pile, and General RAAM's AI");
+        Console.WriteLine("\tcards are added. Then, the Locust AI deck and");
+        Console.WriteLine("\tdiscard pile are shuffled together to create a");
+        Console.WriteLine("\tnew Locust AI deck\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("@ General RAAM: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("General RAAM's Enemy card has");
+        Console.WriteLine("\ttwo unique sides. When General RAAM enters play,");
+        Console.WriteLine("\tSide A of his Enemy card is placed faceup. Certain");
+        Console.WriteLine("\tgame effects will force players to flip this card");
+        Console.WriteLine("\tover. Whichever side is currently faceup displays");
+        Console.WriteLine("\tthe current stats and abilities for General RAAM.");
+        Console.WriteLine("\tPalyers always ignore the facedown side of");
+        Console.WriteLine("\tthis Enemy card.\n");
+        Console.WriteLine("Press Y to contine");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                break;
+            default:
+                MissionSpecifics();
+                break;
+        }
     }
 }
