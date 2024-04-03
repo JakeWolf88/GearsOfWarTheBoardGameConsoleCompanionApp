@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GearsOfWarTheBoardGameConsole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb1c8eae6ae83d4b51fe3416561fcabf273575fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85215f03929935747312bbe339ff47a7ab5ac2a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("GearsOfWarTheBoardGameConsole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GearsOfWarTheBoardGameConsole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
