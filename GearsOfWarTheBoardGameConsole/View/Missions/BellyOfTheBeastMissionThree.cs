@@ -16,6 +16,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(1);
+        DisplayLocationCardDeck(2);
         Console.WriteLine("\n\n\n\n");
         StartMission();
     }
@@ -82,7 +83,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
     {
         if (_isStageOneActivated)
         {
-            Console.WriteLine("\nHas a player actived\n location 12B's equipment\n (found in level 3) Y/N?");
+            Console.WriteLine("\nHas a player actived\n location 13B's equipment\n (found in level 3) Y/N?");
 
             switch (Console.ReadLine().ToUpper())
             {
@@ -166,7 +167,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         CancellationTokenSource.Cancel();
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
         CreateLocustAiCardDeck(1);
-        DisplayLocationCardDeck(2);
         //TODO: Press Y to Continue
     }
 
@@ -228,7 +228,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|                          | |                           |");
-        Console.WriteLine("\t|                          | |                           |");
+        Console.WriteLine("\t|                          | |   (COG STAGGING AREA)     |");
         Console.WriteLine("\t(To Level 2)               | |                           |");
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|__________________________| |___________________________|");
@@ -240,7 +240,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|                          | |                           |");
-        Console.WriteLine("\t(To Level 2)               | |                           |");
+        Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|                          | |                           |");
         Console.WriteLine("\t|__________________________| |___________________________|");
 

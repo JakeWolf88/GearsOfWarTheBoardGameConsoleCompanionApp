@@ -72,10 +72,10 @@ public abstract class GearsOfWarMission
     public void CreateLocationCardDeck()
     {
         _missionLocationCardDeck = new LocationCardDeck(_missionNumber).MissionLocationCardDeck;
-        foreach (List<LocationCard> item in _missionLocationCardDeck)
-        {
-            Shuffle(item);
-        }
+        //foreach (List<LocationCard> item in _missionLocationCardDeck)
+        //{
+        //    Shuffle(item);
+        //}
         DisplayLocationCardDeck(0);
     }
 
