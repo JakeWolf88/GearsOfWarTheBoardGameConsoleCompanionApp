@@ -93,7 +93,7 @@ class EmergenceMissionOne : GearsOfWarMission
             {
                 case "Y":
                 _isStageTwoActivated = false;
-                _isGameStillGoing = false;
+                IsGameStillGoing = false;
                 MissionEnd();
                 break;
                 case "N":
