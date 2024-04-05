@@ -4,13 +4,12 @@ class EmergenceMissionOne : GearsOfWarMission
     private int _numberOfPlayers;
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
-    private bool _isGameStillGoing;
 
     public EmergenceMissionOne(int numberOfPlayers, int missionNumber) : base(numberOfPlayers, missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
-        _isGameStillGoing = true;
+        IsGameStillGoing = true;
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\JacintoPrison.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
@@ -22,7 +21,7 @@ class EmergenceMissionOne : GearsOfWarMission
         SetupMission();
         MissionSetup();
 
-        while (_isGameStillGoing)
+        while (IsGameStillGoing)
         {
             CogTurn();
             LocustTurn();
@@ -51,7 +50,7 @@ class EmergenceMissionOne : GearsOfWarMission
 
     private void LocustTurn()
     {
-        if (!_isGameStillGoing)
+        if (!IsGameStillGoing)
         {
             return;
         }

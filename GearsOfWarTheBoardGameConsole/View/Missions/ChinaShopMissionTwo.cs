@@ -6,12 +6,11 @@ class ChinaShopMissionTwo : GearsOfWarMission
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
     private bool _isStageThreeActivated;
-    private bool _isGameStillGoing;
     public ChinaShopMissionTwo(int numberOfPlayers, int missionNumber) : base(numberOfPlayers, missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
-        _isGameStillGoing = true;
+        IsGameStillGoing = true;
         _stageNumber = 1;
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TombsOfTheUnknowns.mp3");
         MissionSpecifics();
@@ -24,7 +23,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         SetupMission();
         MissionSetup();
 
-        while (_isGameStillGoing)
+        while (IsGameStillGoing)
         {
             CogTurn();
             LocustTurn();
@@ -126,7 +125,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
             {
                 case "Y":
                 _isStageThreeActivated = false;
-                _isGameStillGoing = false;
+                IsGameStillGoing = false;
                 MissionEnd();
                 break;
                 case "N":
@@ -140,7 +139,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
 
     private void LocustTurn()
     {
-        if (!_isGameStillGoing)
+        if (!IsGameStillGoing)
         {
             return;
         }

@@ -161,8 +161,8 @@ public class LocationCardDeck
         temp4.Add(temp2);
 
         List<LocationCard> temp3 = new();
-        temp3.Add(_locationCardDeck["3A"]);
         temp3.Add(_locationCardDeck["5A"]);
+        temp3.Add(_locationCardDeck["12A"]);
         temp3.Add(_locationCardDeck["16A"]);
         temp4.Add(temp3);
         MissionLocationCardDeck = temp4;

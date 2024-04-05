@@ -28,6 +28,8 @@ public abstract class GearsOfWarMission
 
     public CancellationTokenSource CancellationTokenSource { get; set; }
 
+    public bool IsGameStillGoing { get; set; }
+
 
 
     public void SetupMission()
@@ -72,10 +74,10 @@ public abstract class GearsOfWarMission
     public void CreateLocationCardDeck()
     {
         _missionLocationCardDeck = new LocationCardDeck(_missionNumber).MissionLocationCardDeck;
-        //foreach (List<LocationCard> item in _missionLocationCardDeck)
-        //{
-        //    Shuffle(item);
-        //}
+        foreach (List<LocationCard> item in _missionLocationCardDeck)
+        {
+            Shuffle(item);
+        }
         DisplayLocationCardDeck(0);
     }
 
@@ -163,11 +165,14 @@ public abstract class GearsOfWarMission
 
     public void WaitForTurnToComplete()
     {
-        Console.WriteLine("Press 'Y' when turn is complete");
+        Console.WriteLine("Press 'Y' when turn is complete or 'Q' if all players are bleeding out");
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
             return;
+            case "Q":
+                GameOver();
+                break;
             default:
             WaitForTurnToComplete();
             break;
@@ -200,11 +205,22 @@ public abstract class GearsOfWarMission
         musicThread.Start();
     }
 
-
-
-
-
-
+    public void GameOver()
+    {
+        Console.WriteLine("\nAre you sure all players are bleeding out Y/N?");
+        switch (Console.ReadLine().ToUpper())
+        {
+            case "Y":
+                Console.WriteLine("GAME OVER!!!!!");
+                IsGameStillGoing = false;
+                break;
+            case "N":
+                return;
+            default:
+                break;
+        }
+        Console.WriteLine("All players are bleeding out! Game over! ");
+    }
 
 
 

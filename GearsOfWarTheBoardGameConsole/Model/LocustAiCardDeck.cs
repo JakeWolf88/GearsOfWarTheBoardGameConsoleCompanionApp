@@ -22,7 +22,7 @@ class LocustAiCardDeck
             PopulateMissionThreeCards();
             break;
             case 4:
-            PopulateMissionFourCards();
+            PopulateMissionFourCards(stageNumber);
             break;
             case 8:
             PopulateMissionEightCards(stageNumber);
@@ -193,18 +193,44 @@ class LocustAiCardDeck
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[27]);
     }
 
-    private void PopulateMissionFourCards()
+    private void PopulateMissionFourCards(int stageNumber)
     {
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[1]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[2]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[3]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[7]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[28]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[29]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[30]);
-        _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
+        if (stageNumber == 1)
+        {
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[1]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[2]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[3]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[7]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[28]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[29]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[30]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
+        }
+        else
+        {
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[1]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[2]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[3]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[7]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[12]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[13]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[14]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[15]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[16]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[17]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[18]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[19]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[28]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[29]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[30]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
+
+        }
+
     }
 
     private void PopulateMissionEightCards(int stageNumber)

@@ -1,4 +1,5 @@
-﻿using GearsOfWarTheBoardGameConsole.View.Missions;
+﻿using GearsOfWarTheBoardGameConsole.Model;
+using GearsOfWarTheBoardGameConsole.View.Missions;
 using NAudio.Wave;
 Thread musicThread;
 CancellationTokenSource cancellationTokenSource;
@@ -32,8 +33,10 @@ void MainMenu()
 
 
     Console.WriteLine("Main Menu");
-    Console.WriteLine("1 - New Game");
-    Console.WriteLine("2 - Load Game");
+    Console.WriteLine("1 - Base Missions");
+    Console.WriteLine("2 - Mission Pack 1");
+    Console.WriteLine("3 - Community Missions");
+    Console.WriteLine("4 - FAQS");
     Console.WriteLine("3 - Quit\n");
 
     switch (Console.ReadLine())
@@ -42,11 +45,14 @@ void MainMenu()
         NewGame();
         break;
         case "2":
-        LoadGame();
+        //LoadGame();
         break;
         case "3":
         QuitGame();
         break;
+        case "4":
+            FaqMainMenu();
+            break;
         default:
         MainMenu();
         break;
@@ -87,7 +93,8 @@ void NewGame()
         BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
         break;
         case "4":
-        musicThread.Join();
+            cancellationTokenSource.Cancel();
+            musicThread.Join();
         RoadBlocksMissionFour missionStartFour = new(playerCount, 4);
         break;
         case "5":
@@ -113,11 +120,45 @@ void NewGame()
     }
     MainMenu();
 }
-
-void LoadGame()
+void FaqMainMenu()
 {
-    Console.WriteLine("Upcoming feature to be released in the future! \n \n");
-    MainMenu();
+    cancellationTokenSource.Cancel();
+    musicThread.Join();
+    SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
+    Console.WriteLine("\nWhich page would you like to view?\n");
+    Console.WriteLine("1 - FAQ version 1.1 update");
+    Console.WriteLine("2 - Single Player Rules");
+    Console.WriteLine("3 - Insane difficulty rules\n");
+    Console.WriteLine("4 - Back to Main Menu");
+    switch (Console.ReadLine().ToUpper())
+    {
+        case "1":
+            Faq.FaqVersionOnePointOne();
+            break;
+        case "2":
+            Faq.SinglePlayerRules();
+            break;
+        case "3":
+            Faq.InsaneDifficultyRules();
+            break;
+        case "4":
+            MainMenu();
+            return;
+        default:
+            FaqMainMenu();
+            break;
+    }
+
+    Console.WriteLine("Press Y to continue");
+    switch (Console.ReadLine().ToUpper())
+    {
+        case "Y":
+            FaqMainMenu();
+            break;
+        default:
+            FaqMainMenu();
+            break;
+    }
 }
 
 async Task PlayMusicOnNewthread(string audioFilePath, CancellationToken cancellationToken)

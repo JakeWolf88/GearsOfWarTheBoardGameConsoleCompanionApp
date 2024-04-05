@@ -7,13 +7,12 @@
         private int _stageNumber;
         private bool _isStageOneActivated;
         private bool _isStageTwoActivated;
-        private bool _isGameStillGoing;
 
         public RoadBlocksMissionFour(int numberOfPlayers, int missionNumber) : base(numberOfPlayers, missionNumber)
         {
             _numberOfPlayers = numberOfPlayers;
             _isStageOneActivated = true;
-            _isGameStillGoing = true;
+            IsGameStillGoing = true;
             _stageNumber = 1;
             //SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
             MissionSpecifics();
@@ -26,7 +25,7 @@
             SetupMission();
             MissionSetup();
 
-            while (_isGameStillGoing)
+            while (IsGameStillGoing)
             {
                 CogTurn();
                 LocustTurn();
@@ -108,7 +107,7 @@
                 {
                     case "Y":
                         _isStageTwoActivated = false;
-                        _isGameStillGoing = false;
+                        IsGameStillGoing = false;
                         MissionEnd();
                         break;
                     case "N":
@@ -122,7 +121,7 @@
 
         private void LocustTurn()
         {
-            if (!_isGameStillGoing)
+            if (!IsGameStillGoing)
             {
                 return;
             }
@@ -163,22 +162,44 @@
 
         private void StageOneEnd()
         {
-            Console.WriteLine("\n\"Fenix: Ok, time to go home. Baird, you set up the resonator,");
-            Console.WriteLine("we'll get that elevator back online\n");
-            Console.WriteLine("Shuffle the AI discard pile into the deck. Each player then");
-            Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
+            Console.WriteLine("\n\"Carmine: Ever wonder why they don't just give us flashlights?");
+            Console.WriteLine("Tai: Might versus light. I'd take an extra gun over a flashlight any day\"\n");
+            Console.WriteLine("Place a door at the exit to this map tile. Players must then");
+            Console.WriteLine("choose as a group to unlock either level 2 or level 3.\n");
+            Console.WriteLine("Then Update the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A:Ticker, B:Drone, C:Boomer");
+            Console.WriteLine("Then shuffle the discard pile into the AI deck.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            CreateLocustAiCardDeck(1);
-            DisplayLocationCardDeck(2);
+            CreateLocustAiCardDeck(2);
+            PlayerSelectsLocationDeck();
             //TODO: Press Y to Continue
         }
 
         private void MissionEnd()
         {
-            CancellationTokenSource.Cancel();
-            Console.WriteLine("\n\"Fenix: Control, this is Delta. We're clear. Resenator has been detonated.");
-            Console.WriteLine("Control: You did it Marcus. Stand by. King ravens are en route.\"");
-            Console.WriteLine("YOU WIN THE GAME!!!\n");
+            //CancellationTokenSource.Cancel();
+            Console.WriteLine("\n\"Mortars are all clear Dizzy. Let's get to the drilling zone!");
+            Console.WriteLine("I think we'll ride the rest of the way.\"");
+            Console.WriteLine("YOU WIN THE GAME\n");
+        }
+
+        private void PlayerSelectsLocationDeck()
+        {
+            Console.WriteLine("Which Location Level would you like to explore?");
+            Console.WriteLine("2 - Level 2");
+            Console.WriteLine("3 - Level 3");
+            switch (Console.ReadLine().ToUpper())
+            {
+                case "2":
+                    DisplayLocationCardDeck(1);
+                    break;
+                case "3":
+                    DisplayLocationCardDeck(2);
+                    break;
+                default:
+                    PlayerSelectsLocationDeck();
+                    break;
+            }
         }
 
         private void MissionSpecifics()
