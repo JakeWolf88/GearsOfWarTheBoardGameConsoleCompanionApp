@@ -6,12 +6,12 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
     private bool _isStageThreeActivated;
-    private bool _isGameStillGoing;
+
     public TheShowDownMissionPackOne(int numberOfPlayers, int missionNumber): base(numberOfPlayers, missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
-        _isGameStillGoing = true;
+        IsGameStillGoing = true;
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
@@ -23,7 +23,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         SetupMission();
         MissionSetup();
 
-        while (_isGameStillGoing)
+        while (IsGameStillGoing)
         {
             CogTurn();
             LocustTurn();
@@ -126,7 +126,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
             {
                 case "Y":
                 _isStageThreeActivated = false;
-                _isGameStillGoing = false;
+                IsGameStillGoing = false;
                 MissionEnd();
                 break;
                 case "N":
@@ -140,7 +140,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
 
     private void LocustTurn()
     {
-        if (!_isGameStillGoing)
+        if (!IsGameStillGoing)
         {
             return;
         }

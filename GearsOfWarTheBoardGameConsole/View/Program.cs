@@ -30,14 +30,14 @@ void MainMenu()
     Console.WriteLine(@"                                                                                                                   /    |    \  |_> >  |_> >               ");
     Console.WriteLine(@"                                                                                                                   \____|__  /   __/|   __/                ");
     Console.WriteLine(@"                                                                                                                           \/|__|   |__|                       ");
-
+    Console.WriteLine("                                                                                                                                                                                                                            \n");
 
     Console.WriteLine("Main Menu");
     Console.WriteLine("1 - Base Missions");
     Console.WriteLine("2 - Mission Pack 1");
     Console.WriteLine("3 - Community Missions");
     Console.WriteLine("4 - FAQS");
-    Console.WriteLine("3 - Quit\n");
+    Console.WriteLine("5 - Quit\n");
 
     switch (Console.ReadLine())
     {
@@ -47,12 +47,12 @@ void MainMenu()
         case "2":
         //LoadGame();
         break;
-        case "3":
-        QuitGame();
-        break;
         case "4":
             FaqMainMenu();
             break;
+        case "5":
+        QuitGame();
+        break;
         default:
         MainMenu();
         break;
@@ -128,8 +128,9 @@ void FaqMainMenu()
     Console.WriteLine("\nWhich page would you like to view?\n");
     Console.WriteLine("1 - FAQ version 1.1 update");
     Console.WriteLine("2 - Single Player Rules");
-    Console.WriteLine("3 - Insane difficulty rules\n");
-    Console.WriteLine("4 - Back to Main Menu");
+    Console.WriteLine("3 - Insane difficulty rules");
+    Console.WriteLine("4 - Mission Pack 1 FAQs\n");
+    Console.WriteLine("5 - Back to Main Menu\n");
     switch (Console.ReadLine().ToUpper())
     {
         case "1":
@@ -142,6 +143,9 @@ void FaqMainMenu()
             Faq.InsaneDifficultyRules();
             break;
         case "4":
+            Faq.MissionPackOneFaqs();
+            break;
+        case "5":
             MainMenu();
             return;
         default:

@@ -14,7 +14,7 @@
             _isStageOneActivated = true;
             IsGameStillGoing = true;
             _stageNumber = 1;
-            //SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
+            SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
             StartMission();
@@ -177,7 +177,7 @@
 
         private void MissionEnd()
         {
-            //CancellationTokenSource.Cancel();
+            CancellationTokenSource.Cancel();
             Console.WriteLine("\n\"Mortars are all clear Dizzy. Let's get to the drilling zone!");
             Console.WriteLine("I think we'll ride the rest of the way.\"");
             Console.WriteLine("YOU WIN THE GAME\n");
@@ -244,8 +244,8 @@
             Console.Write("@ Stage 1 Spawning: ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("When exploring, do not spawn");
+            Console.WriteLine("figures based on the Location card. Instead, each");
             Console.WriteLine("\tplayer spawns 1 Ticker on any empty area of the");
-            Console.WriteLine("\tfigures based on the Location card. Instead, each");
             Console.WriteLine("\tnew map tile. An area is considered empty if there");
             Console.WriteLine("\tare no figures in it. If there are no empty areas on");
             Console.WriteLine("\tthe map tile, the player may spawn his Ticker in");
@@ -272,9 +272,5 @@
                     break;
             }
         }
-
-
-
-
     }
 }

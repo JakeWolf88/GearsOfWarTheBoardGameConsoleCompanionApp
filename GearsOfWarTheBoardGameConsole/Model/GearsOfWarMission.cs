@@ -171,6 +171,8 @@ public abstract class GearsOfWarMission
             case "Y":
             return;
             case "Q":
+                CancellationTokenSource.Cancel();
+                musicThread.Join();
                 GameOver();
                 break;
             default:
