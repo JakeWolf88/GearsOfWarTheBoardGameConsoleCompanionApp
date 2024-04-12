@@ -1,7 +1,7 @@
+C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.exe
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.deps.json
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.runtimeconfig.json
-C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\GearsOfWarTheBoardGameConsole.pdb
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\NAudio.dll
 C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\bin\Release\net8.0\NAudio.Asio.dll

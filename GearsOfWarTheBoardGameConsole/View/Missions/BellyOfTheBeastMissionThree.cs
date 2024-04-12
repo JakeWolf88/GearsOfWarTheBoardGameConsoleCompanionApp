@@ -17,6 +17,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         CreateLocationCardDeck();
         DisplayLocationCardDeck(1);
         DisplayLocationCardDeck(2);
+        StartTimer();
         Console.WriteLine("\n\n\n\n");
         StartMission();
     }

@@ -22,6 +22,9 @@ public class LocationCardDeck
             case 4:
             PopulateMissionFourCards();
             break;
+            case 5:
+                PopulateMissionFiveCards();
+                break;
             case 8:
             PopulateMissionEightCards();
             break;
@@ -88,116 +91,144 @@ public class LocationCardDeck
 
     private void PopulateMissionOneCards()
     {
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["2A"]);
-        temp.Add(_locationCardDeck["9A"]);
-        temp.Add(_locationCardDeck["12A"]);
-        temp.Add(_locationCardDeck["16A"]);
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["2A"]);
+        levelLocationOne.Add(_locationCardDeck["9A"]);
+        levelLocationOne.Add(_locationCardDeck["12A"]);
+        levelLocationOne.Add(_locationCardDeck["16A"]);
 
-        List<List<LocationCard>> temp2 = new();
-        temp2.Add(temp);
-        MissionLocationCardDeck = temp2;
+        List<List<LocationCard>> allLocationCards = new();
+        allLocationCards.Add(levelLocationOne);
+        MissionLocationCardDeck = allLocationCards;
     }
 
     private void PopulateMissionTwoCards()
     {
-        List<List<LocationCard>> temp4 = new();
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["6A"]);
-        temp.Add(_locationCardDeck["7A"]);
-        temp.Add(_locationCardDeck["11A"]);
-        temp4.Add(temp);
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["6A"]);
+        levelLocationOne.Add(_locationCardDeck["7A"]);
+        levelLocationOne.Add(_locationCardDeck["11A"]);
+        allLocationCards.Add(levelLocationOne);
 
-        List<LocationCard> temp2 = new();
-        temp2.Add(_locationCardDeck["1A"]);
-        temp2.Add(_locationCardDeck["10A"]);
-        temp2.Add(_locationCardDeck["15A"]);
-        temp4.Add(temp2);
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["1A"]);
+        levelLocationTwo.Add(_locationCardDeck["10A"]);
+        levelLocationTwo.Add(_locationCardDeck["15A"]);
+        allLocationCards.Add(levelLocationTwo);
 
-        List<LocationCard> temp3 = new();
-        temp3.Add(_locationCardDeck["17A"]);
-        temp4.Add(temp3);
-        MissionLocationCardDeck = temp4;
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["17A"]);
+        allLocationCards.Add(levelLocationThree);
+        MissionLocationCardDeck = allLocationCards;
     }
 
     private void PopulateMissionThreeCards()
     {
-        List<List<LocationCard>> temp4 = new();
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["1B"]);
-        temp.Add(_locationCardDeck["3B"]);
-        temp.Add(_locationCardDeck["10B"]);
-        temp.Add(_locationCardDeck["11B"]);
-        temp4.Add(temp);
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["1B"]);
+        levelLocationOne.Add(_locationCardDeck["3B"]);
+        levelLocationOne.Add(_locationCardDeck["10B"]);
+        levelLocationOne.Add(_locationCardDeck["11B"]);
+        allLocationCards.Add(levelLocationOne);
 
-        List<LocationCard> temp2 = new();
-        temp2.Add(_locationCardDeck["2B"]);
-        temp2.Add(_locationCardDeck["12B"]);
-        temp2.Add(_locationCardDeck["16B"]);
-        temp4.Add(temp2);
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["2B"]);
+        levelLocationTwo.Add(_locationCardDeck["12B"]);
+        levelLocationTwo.Add(_locationCardDeck["16B"]);
+        allLocationCards.Add(levelLocationTwo);
 
-        List<LocationCard> temp3 = new();
-        temp3.Add(_locationCardDeck["5B"]);
-        temp3.Add(_locationCardDeck["6B"]);
-        temp3.Add(_locationCardDeck["13B"]);
-        temp4.Add(temp3);
-        MissionLocationCardDeck = temp4;
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["5B"]);
+        levelLocationThree.Add(_locationCardDeck["6B"]);
+        levelLocationThree.Add(_locationCardDeck["13B"]);
+        allLocationCards.Add(levelLocationThree);
+        MissionLocationCardDeck = allLocationCards;
     }
     private void PopulateMissionFourCards()
     {
-        List<List<LocationCard>> temp4 = new();
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["3A"]);
-        temp.Add(_locationCardDeck["4A"]);
-        temp.Add(_locationCardDeck["6A"]);
-        temp.Add(_locationCardDeck["9A"]);
-        temp.Add(_locationCardDeck["15A"]);
-        temp4.Add(temp);
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["3A"]);
+        levelLocationOne.Add(_locationCardDeck["4A"]);
+        levelLocationOne.Add(_locationCardDeck["6A"]);
+        levelLocationOne.Add(_locationCardDeck["9A"]);
+        levelLocationOne.Add(_locationCardDeck["15A"]);
+        allLocationCards.Add(levelLocationOne);
 
-        List<LocationCard> temp2 = new();
-        temp2.Add(_locationCardDeck["2A"]);
-        temp2.Add(_locationCardDeck["11A"]);
-        temp2.Add(_locationCardDeck["13A"]);
-        temp4.Add(temp2);
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["2A"]);
+        levelLocationTwo.Add(_locationCardDeck["11A"]);
+        levelLocationTwo.Add(_locationCardDeck["13A"]);
+        allLocationCards.Add(levelLocationTwo);
 
-        List<LocationCard> temp3 = new();
-        temp3.Add(_locationCardDeck["5A"]);
-        temp3.Add(_locationCardDeck["12A"]);
-        temp3.Add(_locationCardDeck["16A"]);
-        temp4.Add(temp3);
-        MissionLocationCardDeck = temp4;
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["5A"]);
+        levelLocationThree.Add(_locationCardDeck["12A"]);
+        levelLocationThree.Add(_locationCardDeck["16A"]);
+        allLocationCards.Add(levelLocationThree);
+        MissionLocationCardDeck = allLocationCards;
+    }
+
+    private void PopulateMissionFiveCards()
+    {
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["3B"]);
+        levelLocationOne.Add(_locationCardDeck["5B"]);
+        levelLocationOne.Add(_locationCardDeck["7B"]);
+        allLocationCards.Add(levelLocationOne);
+
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["1B"]);
+        levelLocationTwo.Add(_locationCardDeck["6B"]);
+        levelLocationTwo.Add(_locationCardDeck["9B"]);
+        levelLocationTwo.Add(_locationCardDeck["13B"]);
+        allLocationCards.Add(levelLocationTwo);
+
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["5A"]);
+        levelLocationThree.Add(_locationCardDeck["12A"]);
+        levelLocationThree.Add(_locationCardDeck["16A"]);
+        allLocationCards.Add(levelLocationThree);
+
+        List<LocationCard> levelLocationFour = new();
+        levelLocationThree.Add(_locationCardDeck["17B"]);
+        allLocationCards.Add(levelLocationFour);
+        MissionLocationCardDeck = allLocationCards;
     }
 
     private void PopulateMissionEightCards()
     {
-        List<List<LocationCard>> temp3 = new();
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["2B"]);
-        temp.Add(_locationCardDeck["6B"]);
-        temp.Add(_locationCardDeck["8B"]);
-        temp3.Add(temp);
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["2B"]);
+        levelLocationOne.Add(_locationCardDeck["6B"]);
+        levelLocationOne.Add(_locationCardDeck["8B"]);
+        allLocationCards.Add(levelLocationOne);
 
-        List<LocationCard> temp2 = new();
-        temp2.Add(_locationCardDeck["1A"]);
-        temp2.Add(_locationCardDeck["3A"]);
-        temp2.Add(_locationCardDeck["10A"]);
-        temp3.Add(temp2);
-        MissionLocationCardDeck = temp3;
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["1A"]);
+        levelLocationTwo.Add(_locationCardDeck["3A"]);
+        levelLocationTwo.Add(_locationCardDeck["10A"]);
+        allLocationCards.Add(levelLocationTwo);
+        MissionLocationCardDeck = allLocationCards;
     }
 
         private void PopulateMissionNineCards()
     {
-        List<List<LocationCard>> temp3 = new();
-        List<LocationCard> temp = new();
-        temp.Add(_locationCardDeck["2A"]);
-        temp.Add(_locationCardDeck["8A"]);
-        temp.Add(_locationCardDeck["10A"]);
-        temp.Add(_locationCardDeck["15A"]);
-        temp3.Add(temp);
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["2A"]);
+        levelLocationOne.Add(_locationCardDeck["8A"]);
+        levelLocationOne.Add(_locationCardDeck["10A"]);
+        levelLocationOne.Add(_locationCardDeck["15A"]);
+        allLocationCards.Add(levelLocationOne);
 
-        List<LocationCard> temp2 = new();
-        temp2.Add(_locationCardDeck["17B"]);
-        temp3.Add(temp2);
-        MissionLocationCardDeck = temp3;
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["17B"]);
+        allLocationCards.Add(levelLocationTwo);
+        MissionLocationCardDeck = allLocationCards;
     }
 }

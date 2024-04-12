@@ -24,6 +24,9 @@ class LocustAiCardDeck
             case 4:
             PopulateMissionFourCards(stageNumber);
             break;
+            case 5:
+                PopulateMissionFiveCards();
+                break;
             case 8:
             PopulateMissionEightCards(stageNumber);
             break;
@@ -95,10 +98,10 @@ class LocustAiCardDeck
         _locustAiCardDeck.Add(31, new LocustAiCard("GROUP -TICKER\n", "IF 1 OR MORE TICKER IN PLAY:\n Each TIcker moves 2 areas\n toward the closest COG\n figure and then attacks\n a COG figure in it's area.\n COG figures may not guard this turn.", "OTHERWISE:\n Spawn 1 Ticker at each\n emergence hole within 5\n movement of you.", true));
 
         //The Kantus
-        _locustAiCardDeck.Add(32, new LocustAiCard("FOR EACH -KANTUS\n", "IF ANOTHER WOUNDED LOCUST\n IS WITHIN 2 MOVEMENT:\n Move into the Locust's area\n and then heal it.", "OTHERWISE:\n Move 2 areas toward the\n nearest COG figure and\n then attack the nearest\n COG figure in LOS.\n If no Kantus in play,\n draw a new AI card.", true));
-        _locustAiCardDeck.Add(33, new LocustAiCard("FOR EACH -KANTUS\n", "IF A DROPPED WEAPON\n MARKER IS WITHIN 2 MOVEMENT:\n Flip the token weapon side down and spawn the\n matching figure on it.", "OTHERWISE:\n Attack a COG figure within 3 range.\n\n If no Kantus in play,\n draw a new AI card.", true));
-        _locustAiCardDeck.Add(34, new LocustAiCard("FOR EACH -KANTUS\n", "IF A COG FIGURE IS WITHIN 4 RANGE:\n Attack him and then move\n 2 areas toward him.", "OTHERWISE:\n Move 2 areas towar the\n nearest COG figure. Then spawn\n 1 Locust A at the emergence\n hole nearest to the Kantus.\n\n If no Kantus in play,\n draw a new AI card.", true));
-        _locustAiCardDeck.Add(35, new LocustAiCard("GROUP -KANTUS\n", "IF 1 OR MORE KANTUS IN PLAY:\n Each Kantus moves 2 areas\n toward the nearest COG\n figure and then attacks\n him (if in LOS).", "OTHERWISE:\n Spawn 1 Kantus at the\n emergence hole nearest you.", true));
+        _locustAiCardDeck.Add(32, new LocustAiCard("FOR EACH -KANTUS\n", "IF ANOTHER WOUNDED LOCUST\n IS WITHIN 2 MOVEMENT:\n Move into the Locust's area\n and then heal it.\n", "OTHERWISE:\n Move 2 areas toward the\n nearest COG figure and\n then attack the nearest\n COG figure in LOS.\n If no Kantus in play,\n draw a new AI card.", true));
+        _locustAiCardDeck.Add(33, new LocustAiCard("FOR EACH -KANTUS\n", "IF A DROPPED WEAPON\n MARKER IS WITHIN 2 MOVEMENT:\n Flip the token weapon side down and spawn the\n matching figure on it.\n", "OTHERWISE:\n Attack a COG figure within 3 range.\n\n If no Kantus in play,\n draw a new AI card.", true));
+        _locustAiCardDeck.Add(34, new LocustAiCard("FOR EACH -KANTUS\n", "IF A COG FIGURE IS WITHIN 4 RANGE:\n Attack him and then move\n 2 areas toward him.\n", "OTHERWISE:\n Move 2 areas towar the\n nearest COG figure. Then spawn\n 1 Locust A at the emergence\n hole nearest to the Kantus.\n\n If no Kantus in play,\n draw a new AI card.", true));
+        _locustAiCardDeck.Add(35, new LocustAiCard("GROUP -KANTUS\n", "IF 1 OR MORE KANTUS IN PLAY:\n Each Kantus moves 2 areas\n toward the nearest COG\n figure and then attacks\n him (if in LOS).\n", "OTHERWISE:\n Spawn 1 Kantus at the\n emergence hole nearest you.", true));
 
         //Mission Pack 1
         //The Grenadiers
@@ -231,6 +234,28 @@ class LocustAiCardDeck
 
         }
 
+    }
+
+    private void PopulateMissionFiveCards()
+    {
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[1]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[3]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[6]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[7]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[12]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[13]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[14]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[15]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[16]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[17]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[18]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[19]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[28]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[29]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[30]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
     }
 
     private void PopulateMissionEightCards(int stageNumber)

@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 class EmergenceMissionOne : GearsOfWarMission
 {
     private int _playerInterator = 1;
@@ -13,6 +15,7 @@ class EmergenceMissionOne : GearsOfWarMission
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\JacintoPrison.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
+        StartTimer();
         StartMission();
     }
 

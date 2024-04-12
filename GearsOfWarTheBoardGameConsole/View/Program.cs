@@ -67,7 +67,10 @@ void NewGame()
     Console.WriteLine("2- China Shop");
     Console.WriteLine("3- Belly Of The Beast");
     Console.WriteLine("4- Roadblocks");
-    Console.WriteLine("5- Scattered");
+    if (playerCount is not 1)
+    {
+        Console.WriteLine("5- Scattered");
+    }
     Console.WriteLine("6- Hive");
     Console.WriteLine("7- Horde Mode");
     Console.WriteLine("\nMission Pack 1:");
@@ -98,7 +101,17 @@ void NewGame()
         RoadBlocksMissionFour missionStartFour = new(playerCount, 4);
         break;
         case "5":
-        break;
+            if (playerCount is not 1)
+            {
+                cancellationTokenSource.Cancel();
+                musicThread.Join();
+                ScatteredMissionFive missionStartFive = new(playerCount, 5);
+            }
+            else
+            {
+                NewGame();
+            }
+            break;
         case "8":
         cancellationTokenSource.Cancel();
         musicThread.Join();

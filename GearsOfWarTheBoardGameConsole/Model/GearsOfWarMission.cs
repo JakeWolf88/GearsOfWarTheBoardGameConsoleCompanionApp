@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+
 public abstract class GearsOfWarMission
 {
     private List<LocustAiCard> _missionLocustAiCardDeck;
@@ -10,7 +13,6 @@ public abstract class GearsOfWarMission
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;
     private Thread musicThread;
-
 
     public GearsOfWarMission(int numberOfPlayers, int missionNumber)
     {
@@ -29,6 +31,8 @@ public abstract class GearsOfWarMission
     public CancellationTokenSource CancellationTokenSource { get; set; }
 
     public bool IsGameStillGoing { get; set; }
+
+    public Stopwatch Stopwatch { get; set; }
 
 
 
@@ -171,8 +175,6 @@ public abstract class GearsOfWarMission
             case "Y":
             return;
             case "Q":
-                CancellationTokenSource.Cancel();
-                musicThread.Join();
                 GameOver();
                 break;
             default:
@@ -183,6 +185,9 @@ public abstract class GearsOfWarMission
 
     public void WaitForGameToEnd()
     {
+        Stopwatch.Stop();
+        TimeSpan timeSpawn = TimeSpan.FromMilliseconds(Stopwatch.ElapsedMilliseconds);
+        Console.WriteLine($"Total time played: {timeSpawn.Hours} hrs {timeSpawn.Minutes} min {timeSpawn.Seconds} sec");
         Console.WriteLine("Press 'Y' to return to main menu");
         switch (Console.ReadLine().ToUpper())
         {
@@ -215,6 +220,9 @@ public abstract class GearsOfWarMission
             case "Y":
                 Console.WriteLine("GAME OVER!!!!!");
                 IsGameStillGoing = false;
+                Stopwatch.Stop();
+                TimeSpan timeSpawn = TimeSpan.FromMilliseconds(Stopwatch.ElapsedMilliseconds);
+                Console.WriteLine($"Total time played: {timeSpawn.Hours} hrs {timeSpawn.Minutes} min {timeSpawn.Seconds} sec");
                 break;
             case "N":
                 return;
@@ -224,7 +232,11 @@ public abstract class GearsOfWarMission
         Console.WriteLine("All players are bleeding out! Game over! ");
     }
 
-
+    public void StartTimer()
+    {
+        Stopwatch = new();
+        Stopwatch.Start();
+    }
 
 
 

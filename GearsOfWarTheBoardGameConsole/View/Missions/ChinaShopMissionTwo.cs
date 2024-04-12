@@ -15,6 +15,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TombsOfTheUnknowns.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
+        StartTimer();
         StartMission();
     }
 

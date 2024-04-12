@@ -143,7 +143,7 @@ namespace GearsOfWarTheBoardGameConsole.Model
             Console.WriteLine("These new Special Wapon cards are");
             Console.WriteLine("added to the existing deck of");
             Console.WriteLine("Special Wapon cards\n");
-            Console.WriteLine("General RAAM Enemy Card");
+            Console.WriteLine("General RAAM Enemy Card");   
             Console.WriteLine("The general RAAM Enemy card has");
             Console.WriteLine("two unique sides (Side A and Side B).");
             Console.WriteLine("");

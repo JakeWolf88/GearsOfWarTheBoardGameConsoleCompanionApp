@@ -17,6 +17,7 @@
             SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
+            StartTimer();
             StartMission();
         }
 
@@ -181,6 +182,7 @@
             Console.WriteLine("\n\"Mortars are all clear Dizzy. Let's get to the drilling zone!");
             Console.WriteLine("I think we'll ride the rest of the way.\"");
             Console.WriteLine("YOU WIN THE GAME\n");
+            WaitForGameToEnd();
         }
 
         private void PlayerSelectsLocationDeck()
