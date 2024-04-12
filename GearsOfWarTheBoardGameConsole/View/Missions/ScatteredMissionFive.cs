@@ -26,7 +26,7 @@
 
         private void StartMission()
         {
-            SetupMission();s
+            SetupMission();
             MissionSetup();
 
             while (IsGameStillGoing)
