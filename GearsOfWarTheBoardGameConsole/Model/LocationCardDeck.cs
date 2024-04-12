@@ -194,7 +194,7 @@ public class LocationCardDeck
         allLocationCards.Add(levelLocationThree);
 
         List<LocationCard> levelLocationFour = new();
-        levelLocationThree.Add(_locationCardDeck["17B"]);
+        levelLocationFour.Add(_locationCardDeck["17B"]);
         allLocationCards.Add(levelLocationFour);
         MissionLocationCardDeck = allLocationCards;
     }
