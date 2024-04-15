@@ -23,6 +23,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             //SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
+            DisplayLocationCardDeck(0);
             DisplayLocationCardDeck(1);
             DisplayLocationCardDeck(2);
             StartTimer();

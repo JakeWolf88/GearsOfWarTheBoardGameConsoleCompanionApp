@@ -82,7 +82,6 @@ public abstract class GearsOfWarMission
         {
             Shuffle(item);
         }
-        DisplayLocationCardDeck(0);
     }
 
     public void DisplayLocationCardDeck(int levelStage)

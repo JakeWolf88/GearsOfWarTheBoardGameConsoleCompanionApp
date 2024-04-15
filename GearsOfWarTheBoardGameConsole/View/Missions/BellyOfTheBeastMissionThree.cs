@@ -15,6 +15,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
+        DisplayLocationCardDeck(0);
         DisplayLocationCardDeck(1);
         DisplayLocationCardDeck(2);
         StartTimer();

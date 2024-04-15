@@ -115,19 +115,24 @@ void NewGame()
         case "6":
             cancellationTokenSource.Cancel();
             musicThread.Join();
-            HiveMissionSix missionStartSixe = new(playerCount, 6);
+            HiveMissionSix missionStartSix = new(playerCount, 6);
+            break;
+        case "7":
+            cancellationTokenSource.Cancel();
+            musicThread.Join();
+            HordeModeMissionSeven missionStartSeven = new(playerCount, 7);
             break;
         case "8":
         cancellationTokenSource.Cancel();
         musicThread.Join();
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
-        TheShowDownMissionPackOne missionStartSeven = new(playerCount, 8);
+        TheShowDownMissionPackOne missionStartEight = new(playerCount, 8);
         break;
         case "9":
         cancellationTokenSource.Cancel();
         musicThread.Join();
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
-        SearchForTheStrandedMisisonPackOne missionStartEight = new(playerCount, 9);
+        SearchForTheStrandedMisisonPackOne missionStartNine = new(playerCount, 9);
         break;
         case "10":
         MainMenu();

@@ -16,6 +16,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
+        DisplayLocationCardDeck(0);
         StartMission();
     }
 

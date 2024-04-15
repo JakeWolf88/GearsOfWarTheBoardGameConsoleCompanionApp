@@ -15,6 +15,7 @@ class EmergenceMissionOne : GearsOfWarMission
         SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\JacintoPrison.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
+        DisplayLocationCardDeck(0);
         StartTimer();
         StartMission();
     }
@@ -167,7 +168,6 @@ class EmergenceMissionOne : GearsOfWarMission
     }
     private void MissionEnd()
     {
-        CancellationTokenSource.Cancel();
         Console.WriteLine("\nFenix: What are you doing here?");
         Console.WriteLine("Santiago: Getting you out. Here put this on.");
         Console.WriteLine("Fenix: You could get into a lot of trouble for doing this.");

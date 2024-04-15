@@ -28,6 +28,9 @@ public class LocationCardDeck
             case 6:
                 PopulateMissionSixCards();
                 break;
+            case 7:
+                PopulateMissionSevenCards();
+                break;
             case 8:
             PopulateMissionEightCards();
             break;
@@ -222,6 +225,41 @@ public class LocationCardDeck
         levelLocationThree.Add(_locationCardDeck["15B"]);
         allLocationCards.Add(levelLocationThree);
         MissionLocationCardDeck = allLocationCards;
+    }
+
+    private void PopulateMissionSevenCards()
+    {
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["1A"]);
+        levelLocationOne.Add(_locationCardDeck["4A"]);
+        levelLocationOne.Add(_locationCardDeck["7A"]);
+        levelLocationOne.Add(_locationCardDeck["12A"]);
+        levelLocationOne.Add(_locationCardDeck["14A"]);
+        allLocationCards.Add(levelLocationOne);
+
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["3B"]);
+        levelLocationTwo.Add(_locationCardDeck["4B"]);
+        levelLocationTwo.Add(_locationCardDeck["7B"]);
+        levelLocationTwo.Add(_locationCardDeck["11B"]);
+        levelLocationTwo.Add(_locationCardDeck["17B"]);
+        allLocationCards.Add(levelLocationTwo);
+
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["4A"]);
+        levelLocationThree.Add(_locationCardDeck["8A"]);
+        levelLocationThree.Add(_locationCardDeck["10A"]);
+        levelLocationThree.Add(_locationCardDeck["15A"]);
+        allLocationCards.Add(levelLocationThree);
+
+        List<LocationCard> levelLocationFour = new();
+        levelLocationFour.Add(_locationCardDeck["1B"]);
+        levelLocationFour.Add(_locationCardDeck["8B"]);
+        levelLocationFour.Add(_locationCardDeck["13B"]);
+        allLocationCards.Add(levelLocationFour);
+        MissionLocationCardDeck = allLocationCards;
+
     }
 
     private void PopulateMissionEightCards()
