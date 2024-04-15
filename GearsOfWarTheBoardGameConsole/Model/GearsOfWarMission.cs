@@ -96,21 +96,41 @@ public abstract class GearsOfWarMission
             Console.WriteLine($"\n{mission.Title}");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\n{mission.Description} \n");
-            switch (_numberOfPlayers)
+            if (_missionNumber is 5)
             {
-                case 1:
-                Console.Write($" Enemies spawned: {mission.Enemies[0]} \n\n");
-                break;
-                case 2:
-                Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
-                break;
-                case 3:
-                Console.WriteLine($"Enemies spawned: {mission.Enemies[2]} \n\n");
-                break;
-                default:
-                Console.WriteLine($"Enemies spawned: {mission.Enemies[3]} \n\n");
-                break;
+                switch (_numberOfPlayers)
+                {
+                    case 2:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[0]} \n\n");
+                        break;
+                    case 3:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
+                        break;
+                    default:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
+                        break;
+                }
             }
+            else
+            {
+                switch (_numberOfPlayers)
+                {
+                    case 1:
+                        Console.Write($" Enemies spawned: {mission.Enemies[0]} \n\n");
+                        break;
+                    case 2:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
+                        break;
+                    case 3:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[2]} \n\n");
+                        break;
+                    default:
+                        Console.WriteLine($"Enemies spawned: {mission.Enemies[3]} \n\n");
+                        break;
+                }
+
+            }
+
         }
     }
 
