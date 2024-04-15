@@ -1,4 +1,5 @@
 
+
 class LocustAiCardDeck
 {
     private int _missionNumber;
@@ -27,6 +28,9 @@ class LocustAiCardDeck
             case 5:
                 PopulateMissionFiveCards();
                 break;
+            case 6:
+                PopulateMissionSixCards();
+                break;
             case 8:
             PopulateMissionEightCards(stageNumber);
             break;
@@ -37,6 +41,7 @@ class LocustAiCardDeck
             break;
         }
     }
+
 
     public List<LocustAiCard> MissionLocustAiCardDeck 
     {
@@ -258,6 +263,26 @@ class LocustAiCardDeck
         _missionlocustAiCardDeck.Add(_locustAiCardDeck[31]);
     }
 
+    private void PopulateMissionSixCards()
+    {
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[2]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[4]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[5]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[6]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[12]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[13]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[14]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[15]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[24]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[25]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[26]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[27]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[32]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[33]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[34]);
+        _missionlocustAiCardDeck.Add(_locustAiCardDeck[35]);
+    }
+
     private void PopulateMissionEightCards(int stageNumber)
     {
         if (stageNumber == 1)
@@ -295,7 +320,6 @@ class LocustAiCardDeck
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[114]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[115]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[116]);
-            
         }
     }
     private void PopulateMissionNineCards()

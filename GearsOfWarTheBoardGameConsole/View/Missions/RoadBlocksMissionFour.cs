@@ -178,7 +178,6 @@
 
         private void MissionEnd()
         {
-            CancellationTokenSource.Cancel();
             Console.WriteLine("\n\"Mortars are all clear Dizzy. Let's get to the drilling zone!");
             Console.WriteLine("I think we'll ride the rest of the way.\"");
             Console.WriteLine("YOU WIN THE GAME\n");

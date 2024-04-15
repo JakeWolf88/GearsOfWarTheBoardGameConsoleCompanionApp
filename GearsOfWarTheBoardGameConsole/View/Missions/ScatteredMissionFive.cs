@@ -11,7 +11,7 @@
 
         public ScatteredMissionFive(int numberOfPlayers, int missionNumber) : base(numberOfPlayers, missionNumber)
         {
-            //TODO: Figure out a way to properly disply location deck AI based on number of players
+            //TODO: Figure out a way to properly disply location deck AI based on number of players and add music!
             _numberOfPlayers = numberOfPlayers;
             _isStageOneActivated = true;
             IsGameStillGoing = true;

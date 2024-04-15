@@ -112,6 +112,11 @@ void NewGame()
                 NewGame();
             }
             break;
+        case "6":
+            cancellationTokenSource.Cancel();
+            musicThread.Join();
+            HiveMissionSix missionStartSixe = new(playerCount, 6);
+            break;
         case "8":
         cancellationTokenSource.Cancel();
         musicThread.Join();

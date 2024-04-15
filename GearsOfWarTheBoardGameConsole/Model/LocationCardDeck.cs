@@ -25,6 +25,9 @@ public class LocationCardDeck
             case 5:
                 PopulateMissionFiveCards();
                 break;
+            case 6:
+                PopulateMissionSixCards();
+                break;
             case 8:
             PopulateMissionEightCards();
             break;
@@ -88,7 +91,7 @@ public class LocationCardDeck
         _locationCardDeck.Add("17B", new LocationCard("17B", "WEAPON", "Discard this card and draw\n 2 Random Weapon cards.\n Keep 1 (with 2 ammo)\n and discard the other.", new List<string>{"B","AA","AB","AAB"}));
 
     }
-
+    
     private void PopulateMissionOneCards()
     {
         List<LocationCard> levelLocationOne = new();
@@ -196,6 +199,28 @@ public class LocationCardDeck
         List<LocationCard> levelLocationFour = new();
         levelLocationFour.Add(_locationCardDeck["17B"]);
         allLocationCards.Add(levelLocationFour);
+        MissionLocationCardDeck = allLocationCards;
+    }
+    private void PopulateMissionSixCards()
+    {
+        List<List<LocationCard>> allLocationCards = new();
+        List<LocationCard> levelLocationOne = new();
+        levelLocationOne.Add(_locationCardDeck["3B"]);
+        levelLocationOne.Add(_locationCardDeck["10B"]);
+        levelLocationOne.Add(_locationCardDeck["16B"]);
+        allLocationCards.Add(levelLocationOne);
+
+        List<LocationCard> levelLocationTwo = new();
+        levelLocationTwo.Add(_locationCardDeck["6B"]);
+        levelLocationTwo.Add(_locationCardDeck["9B"]);
+        levelLocationTwo.Add(_locationCardDeck["13B"]);
+        allLocationCards.Add(levelLocationTwo);
+
+        List<LocationCard> levelLocationThree = new();
+        levelLocationThree.Add(_locationCardDeck["4B"]);
+        levelLocationThree.Add(_locationCardDeck["5B"]);
+        levelLocationThree.Add(_locationCardDeck["15B"]);
+        allLocationCards.Add(levelLocationThree);
         MissionLocationCardDeck = allLocationCards;
     }
 
