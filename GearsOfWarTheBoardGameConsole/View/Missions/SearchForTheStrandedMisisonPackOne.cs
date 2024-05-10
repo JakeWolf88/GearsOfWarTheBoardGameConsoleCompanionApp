@@ -85,6 +85,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         {
             Console.WriteLine("\nAre there a number of ammunition\n tokens on this card equal to twice\n the number of players? Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -99,12 +100,14 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas a COG activated and resolved the\n equipment location card 17B Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -118,12 +121,14 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas the stranded entered the map exit Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -137,6 +142,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -226,6 +232,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -236,6 +243,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nSEARCH FOR THE STRANDED\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -261,6 +269,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("\tto place ammo tokens on the map, These tokens");
         Console.WriteLine("\tmay not be picked up or placed on Weapon cards.\n");
         Console.WriteLine("Press Y to contine");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -269,5 +278,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

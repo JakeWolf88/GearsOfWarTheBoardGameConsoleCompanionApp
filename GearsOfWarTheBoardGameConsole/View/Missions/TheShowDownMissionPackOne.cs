@@ -16,6 +16,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(0);
+        StartTimer();
         StartMission();
     }
 
@@ -83,6 +84,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         {
             Console.WriteLine("\nHas the Berserker been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -97,12 +99,14 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                     StageActivationPrompt();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas level 2 been explored Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -117,12 +121,14 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas General RAAM been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -136,6 +142,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -181,8 +188,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("Spawn 1 Locust type A for each player on every");
         Console.WriteLine("emergence hole on the map.");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-
-        //TODO: Press Y to Continue
         CreateLocustAiCardDeck(2);
     }
     private void MissionEnd()
@@ -199,6 +204,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -209,6 +215,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nTHE SHOWDOWN\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -266,6 +273,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("\tPalyers always ignore the facedown side of");
         Console.WriteLine("\tthis Enemy card.\n");
         Console.WriteLine("Press Y to contine");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -274,5 +282,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

@@ -39,6 +39,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("2 - NORMAL");
             Console.WriteLine("3 - HARDCORE");
             Console.WriteLine("4 - INSANE");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "1":
@@ -57,6 +58,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     PickDifficutly();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void StartMission()
@@ -71,9 +73,12 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             }
         }
 
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public void SetupMission()
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
         {
             Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -87,6 +92,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     SetupMission();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void MissionSetup()
@@ -104,7 +110,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("Special Rules:\n");
             Console.WriteLine("Before setting up the map,");
             Console.WriteLine("players must choose one of the 4");
-            Console.WriteLine("options.\n");
+            Console.WriteLine("difficulty options.\n");
             Console.WriteLine("Enemies");
             Console.WriteLine("A: Wretch");
             Console.WriteLine("B: Drone");
@@ -115,17 +121,13 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
         private void CogTurn()
         {
             Console.WriteLine("COG player's turn:");
-            if (_isStageOneActivated)
+            if (_isStageOneActivated || _isStageTwoActivated || _isStageThreeActivated || _isStageFourActivated || _isStageFiveActivated)
             {
-                StageOneBanner();
-            }
-            else if (_isStageTwoActivated)
-            {
-                StageTwoBanner();
+                StageOneToFiveBanner();
             }
             else
             {
-                StageThreeBanner();
+                StageSixBanner();
             }
             Console.WriteLine($"Player {_playerInterator}'s turn");
             StageActivationPrompt();
@@ -154,16 +156,15 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
         {
             if (_isStageOneActivated)
             {
-                Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 1 Y/N?");
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
                         _isStageOneActivated = false;
                         _isStageTwoActivated = true;
-                        _stageNumber = 2;
                         StageOneEnd();
-                        DisplayLocationCardDeck(2);
                         break;
                     case "N":
                         break;
@@ -171,19 +172,21 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
-                Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 2 Y/N?");
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
                         _isStageTwoActivated = false;
                         _isStageThreeActivated = true;
+                        _stageNumber = 3;
                         StageTwoEnd();
-                        DisplayLocationCardDeck(3);
                         break;
                     case "N":
                         break;
@@ -191,12 +194,77 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageThreeActivated)
             {
-                Console.WriteLine("\nAre all COG figures on map 17B,\n no COG figures are bleeding out,\n and there are no Grinders in play Y/N?");
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                switch (Console.ReadLine().ToUpper())
+                {
+                    case "Y":
+                        _isStageThreeActivated = false;
+                        _isStageFourActivated = true;
+                        _stageNumber = 4;
+                        StageThreeEnd();
+                        break;
+                    case "N":
+                        break;
+                    default:
+                        StageActivationPrompt();
+                        break;
+                }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            }
+            if (_isStageFourActivated)
+            {
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                switch (Console.ReadLine().ToUpper())
+                {
+                    case "Y":
+                        _isStageFourActivated = false;
+                        _isStageFiveActivated = true;
+                        _stageNumber = 5;
+                        StageFourEnd();
+                        break;
+                    case "N":
+                        break;
+                    default:
+                        StageActivationPrompt();
+                        break;
+                }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            }
+            if (_isStageFiveActivated)
+            {
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                switch (Console.ReadLine().ToUpper())
+                {
+                    case "Y":
+                        _isStageFiveActivated = false;
+                        _isStageSixActivated = true;
+                        _stageNumber = 6;
+                        StageFiveEnd();
+                        break;
+                    case "N":
+                        break;
+                    default:
+                        StageActivationPrompt();
+                        break;
+                }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            }
+            if (_isStageSixActivated)
+            {
+                Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -210,79 +278,166 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
-        private void StageOneBanner()
+        private void StageOneToFiveBanner()
         {
             Console.WriteLine("\nSpecial Rules:\n");
-            Console.WriteLine("COGs cannot explore though the");
-            Console.WriteLine("door at the exit of level 2.\n");
-            Console.WriteLine("When a player resolves an AI");
-            Console.WriteLine("card, it only affects Locust on");
-            Console.WriteLine("his map.\n");
-            Console.WriteLine("Objective: A COG attempts to explore");
-            Console.WriteLine("through the door at the end");
-            Console.WriteLine("of level 1.\n");
+            Console.WriteLine("Grenade and Ammunition");
+            Console.WriteLine("Location cards are turned");
+            Console.WriteLine("facedown when used.\n");
+            Console.WriteLine("Objective: The last Locust");
+            Console.WriteLine("is killed.\n");
         }
 
-        private void StageTwoBanner()
+        private void StageSixBanner()
         {
             Console.WriteLine("\nSpecial Rules:\n");
-            Console.WriteLine("COGs cannot explore through the");
-            Console.WriteLine("door at the exit of level 3.\n");
-            Console.WriteLine("When a player resolves an AI");
-            Console.WriteLine("card, it only affects Locusts on");
-            Console.WriteLine("his map.\n");
-            Console.WriteLine("Objective: A COG attempts to explore");
-            Console.WriteLine("through the door at the end");
-            Console.WriteLine("of level 2.\n");
-        }
-
-        private void StageThreeBanner()
-        {
-            Console.WriteLine("\nSpecial Rules:\n");
-            Console.WriteLine("Areas that contain doors are");
-            Console.WriteLine("considered adjacent for figure");
-            Console.WriteLine("movement.\n");
-            Console.WriteLine("Figures may not attack");
-            Console.WriteLine("through doors.");
-            Console.WriteLine("Objective: All COG figures are on map 17B,");
-            Console.WriteLine("no COG figures are bleeding out,");
-            Console.WriteLine("and there are no Grinders in play.\n");
+            Console.WriteLine("None.\n");
         }
 
         private void StageOneEnd()
         {
-            Console.WriteLine("\n\"Dom: so this is what the intter hollow looks like.\"");
-            Console.WriteLine("Carmine: Sarge! Can you hear me?");
-            Console.WriteLine("Fenix: Carmine, what's your position?");
-            Console.WriteLine("Carmine: Not really sure, sir. I think my lift went off course.\n");
-            Console.WriteLine("Explore level 3 of the map, spawning Locust figures based on the");
-            Console.WriteLine("number of players on that map. Then place a door at the end of level 3.\n");
+            Console.WriteLine("\nDiscard all sealed emergence hole tokens, then turn all");
+            Console.WriteLine("Ammunition Location cards faceup. Then update");
+            Console.WriteLine("the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A: Wretch, B: Drone, C: None\n");
+            Console.WriteLine("Finally, shuffle the AI discard pile into the deck and spawn the");
+            Console.WriteLine("following figures at emergence holes (as evenly as possible).");
+            switch (_numberOfPlayers)
+            {
+                case 1:
+                    Console.WriteLine("1 Player: 2 Wretches, 1 Drone");
+                    break;
+                case 2:
+                    Console.WriteLine("2 Players: 4 Wretches, 1 Drone");
+                    break;
+                case 3:
+                    Console.WriteLine("3 Players: 4 Wretches, 3 Drones");
+                    break;
+                case 4:
+                    Console.WriteLine("4 Players: 6 Wretches, 3 Drones");
+                    break;
+            }
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
             //TODO: Press Y to Continue
         }
 
         private void StageTwoEnd()
         {
-            Console.WriteLine("\n\"Fenix: Hold them off so that Jack can fix the lift!\"\n");
-            Console.WriteLine("Place map tile 17B at the end of level 2 (do not use the");
-            Console.WriteLine("Location card for equipment or spawning). Then place a");
-            Console.WriteLine("door at the exit of map tile 17B.\n");
-            Console.WriteLine("Remove all Boomers from the map. Then replace the Boomer");
-            Console.WriteLine("Enemy card with the Grinder Enemy card. Each player spawns 1");
-            Console.WriteLine("Grinder on any empty area of Map Tile 17B. In a four-player game,");
-            Console.WriteLine("Kantus and Boomer figures may be used as Grinders.\n");
+            Console.WriteLine("\nDiscard all sealed emergence hole tokens, then turn all");
+            Console.WriteLine("Ammunition Location cards faceup. Then update");
+            Console.WriteLine("the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A: Lament Wretch, B: Boomer, C: None\n");
+            Console.WriteLine("Finally, shuffle the AI discard pile into the deck and spawn the");
+            Console.WriteLine("following figures at emergence holes (as evenly as possible).");
+            switch (_numberOfPlayers)
+            {
+                case 1:
+                    Console.WriteLine("1 Player: 2 Lament Wretches, 1 Boomer");
+                    break;
+                case 2:
+                    Console.WriteLine("2 Players: 4 Lament Wretches, 1 Boomer");
+                    break;
+                case 3:
+                    Console.WriteLine("3 Players: 4 Lament Wretches, 2 Boomers");
+                    break;
+                case 4:
+                    Console.WriteLine("4 Players: 6 Lament Wretches, 2 Boomers");
+                    break;
+            }
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            //TODO: Press Y to Continue
+            CreateLocustAiCardDeck(3);
+        }
+
+        private void StageThreeEnd()
+        {
+            Console.WriteLine("\nDiscard all sealed emergence hole tokens, then turn all");
+            Console.WriteLine("Ammunition Location cards faceup. Then update");
+            Console.WriteLine("the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A: Ticker, B: Kantus, C: None\n");
+            Console.WriteLine("Finally, shuffle the AI discard pile into the deck and spawn the");
+            Console.WriteLine("following figures at emergence holes (as evenly as possible).");
+            switch (_numberOfPlayers)
+            {
+                case 1:
+                    Console.WriteLine("1 Player: 2 Tickers, 1 Kantus");
+                    break;
+                case 2:
+                    Console.WriteLine("2 Players: 4 Tickers, 1 Kantus");
+                    break;
+                case 3:
+                    Console.WriteLine("3 Players: 4 Tickers, 2 Kantus");
+                    break;
+                case 4:
+                    Console.WriteLine("4 Players: 4 Tickers, 3 Kantus");
+                    break;
+            }
+            Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+            CreateLocustAiCardDeck(4);
+        }
+
+        private void StageFourEnd()
+        {
+            Console.WriteLine("\nDiscard all sealed emergence hole tokens, then turn all");
+            Console.WriteLine("Ammunition Location cards faceup. Then update");
+            Console.WriteLine("the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A: Ticker, B: Kantus, C: Theron Guard\n");
+            Console.WriteLine("Finally, shuffle the AI discard pile into the deck and spawn the");
+            Console.WriteLine("following figures at emergence holes (as evenly as possible).");
+            switch (_numberOfPlayers)
+            {
+                case 1:
+                    Console.WriteLine("1 Player: 1 Kantus, 1 Theron Guard");
+                    break;
+                case 2:
+                    Console.WriteLine("2 Players: 1 Kantus, 2 Theron Guards");
+                    break;
+                case 3:
+                    Console.WriteLine("3 Players: 2 Kantus, 2 Theron Guards");
+                    break;
+                case 4:
+                    Console.WriteLine("4 Players: 2 Kantus, 3 Theron Guards");
+                    break;
+            }
+            Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+            CreateLocustAiCardDeck(5);
+        }
+
+        private void StageFiveEnd()
+        {
+            Console.WriteLine("\nDiscard all sealed emergence hole tokens, Players then");
+            Console.WriteLine("choose a player to receive the \"Hammer of Dawn\" Weapon card.");
+            Console.WriteLine("Then update the AI deck and Enemy cards to reflect the following:");
+            Console.WriteLine("A: Drone, B: Grinder, C: Berserker\n");
+            Console.WriteLine("Finally, shuffle the AI discard pile into the deck and spawn the");
+            Console.WriteLine("following figures at emergence holes (as evenly as possible).");
+            switch (_numberOfPlayers)
+            {
+                case 1:
+                    Console.WriteLine("1 Player: 1 Drone, 1 Grinder, 1 Berserker");
+                    break;
+                case 2:
+                    Console.WriteLine("2 Players: 2 Drones, 2 Grinders, 1 Berserker");
+                    break;
+                case 3:
+                    Console.WriteLine("3 Players: 4 Drones, 2 Grinders, 1 Berserker");
+                    break;
+                case 4:
+                    Console.WriteLine("4 Players: 5 Drones, 3 Grinders, 1 Berserker");
+                    break;
+            }
+            Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+            CreateLocustAiCardDeck(6);
         }
 
         private void MissionEnd()
         {
-            //CancellationTokenSource.Cancel();
-            Console.WriteLine("\n\"Control: Delta, according to Jack that grindlift should be operation now.");
-            Console.WriteLine("Fenix: Thanks Control. All right, let;s give this lift a shove.\"\n");
+            Console.WriteLine("\n\"Myrrah: They do not understand. They do not know why we wage");
+            Console.WriteLine("this war. Why we will fight, and fight and fight... Until we win...");
+            Console.WriteLine("Or we die... And we are not dead yet.\"\n");
             Console.WriteLine("YOU WIN THE GAME\n");
             WaitForGameToEnd();
         }
@@ -290,6 +445,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -300,6 +456,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nHORDE MODE\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -338,7 +495,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("At the end of each stage of this mission,");
             Console.WriteLine("\tplayers are required to change the Enemy cards");
-            Console.WriteLine("and AI deck as specified on the Mission card. This");
+            Console.WriteLine("\tand AI deck as specified on the Mission card. This");
             Console.WriteLine("\tfollows the same rules that players would perform");
             Console.WriteLine("\tduring setup (remove all cards from the AI deck");
             Console.WriteLine("\tthat do no match the \"A\", \"B\", or \"C\" Enemy cards).\n");
@@ -353,7 +510,9 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("\tleast one Locust figure. Likewise, they cannot place");
             Console.WriteLine("\ta third figure in an area unless each emergence");
             Console.WriteLine("\thole area has at least two Locust figures.\n");
+            Console.WriteLine("Press Y to contine");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -362,12 +521,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
-
-
-
-
-
-
     }
 }

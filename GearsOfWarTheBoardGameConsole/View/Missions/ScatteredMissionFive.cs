@@ -37,9 +37,12 @@
             }
         }
 
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public void SetupMission()
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
         {
             Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -53,6 +56,7 @@
                     SetupMission();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void MissionSetup()
@@ -111,6 +115,7 @@
             {
                 Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 1 Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -126,12 +131,14 @@
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
                 Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 2 Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -146,12 +153,14 @@
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageThreeActivated)
             {
                 Console.WriteLine("\nAre all COG figures on map 17B,\n no COG figures are bleeding out,\n and there are no Grinders in play Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -165,6 +174,7 @@
                         StageActivationPrompt();
                         break;
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -249,7 +259,6 @@
 
         private void MissionEnd()
         {
-           //CancellationTokenSource.Cancel();
             Console.WriteLine("\n\"Control: Delta, according to Jack that grindlift should be operation now.");
             Console.WriteLine("Fenix: Thanks Control. All right, let;s give this lift a shove.\"\n");
             Console.WriteLine("YOU WIN THE GAME\n");
@@ -259,6 +268,7 @@
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -269,6 +279,7 @@
                     MissionSpecifics();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nSCATTERED\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -323,6 +334,7 @@
             Console.WriteLine("\tfigures' wound markers (excluding dropped wapons).\n");
             Console.WriteLine("Press Y to contine");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -331,6 +343,7 @@
                     MissionSpecifics();
                     break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
     }

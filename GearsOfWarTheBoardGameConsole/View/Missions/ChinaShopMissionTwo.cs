@@ -84,6 +84,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         {
             Console.WriteLine("\nHas the Berserk moved\n into the map exit\n area of level 1 Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -98,12 +99,14 @@ class ChinaShopMissionTwo : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas the Berserk moved\n into the map exit\n area of level 2 Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -117,12 +120,14 @@ class ChinaShopMissionTwo : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas the Berserker been killed Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -136,6 +141,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -221,6 +227,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -231,6 +238,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
             MissionSpecifics();
             break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nCHINA SHOP\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -279,6 +287,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("\thas already been wounded\n");
 
         Console.WriteLine("Press Y to contine");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -287,5 +296,6 @@ class ChinaShopMissionTwo : GearsOfWarMission
             MissionSpecifics();
             break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

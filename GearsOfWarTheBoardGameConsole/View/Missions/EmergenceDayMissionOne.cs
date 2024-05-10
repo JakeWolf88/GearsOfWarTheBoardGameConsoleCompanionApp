@@ -74,6 +74,7 @@ class EmergenceMissionOne : GearsOfWarMission
         {
             Console.WriteLine("\nHave all emergence holes been sealed? Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -87,12 +88,14 @@ class EmergenceMissionOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nAre there zero locust figures in play Y/N?");
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -106,6 +109,7 @@ class EmergenceMissionOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -184,6 +188,7 @@ class EmergenceMissionOne : GearsOfWarMission
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -194,6 +199,7 @@ class EmergenceMissionOne : GearsOfWarMission
             MissionSpecifics();
             break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nEMERGENCE\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -231,6 +237,7 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("\tcard) and a new AI card is drawn\n");
 
         Console.WriteLine("Press Y to contine");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -239,6 +246,7 @@ class EmergenceMissionOne : GearsOfWarMission
             MissionSpecifics();
             break;
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         
     }
 }

@@ -3,7 +3,9 @@
 
 class LocustAiCardDeck
 {
+#pragma warning disable CS0169 // The field 'LocustAiCardDeck._missionNumber' is never used
     private int _missionNumber;
+#pragma warning restore CS0169 // The field 'LocustAiCardDeck._missionNumber' is never used
     private Dictionary<int, LocustAiCard> _locustAiCardDeck;
     private List<LocustAiCard> _missionlocustAiCardDeck;
 
