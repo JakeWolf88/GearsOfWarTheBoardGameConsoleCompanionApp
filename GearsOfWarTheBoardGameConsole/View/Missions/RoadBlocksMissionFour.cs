@@ -85,7 +85,6 @@
             {
                 Console.WriteLine("\nHas a COG entered the last\n map tile on this level Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -100,14 +99,12 @@
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
                 Console.WriteLine("\nAre all COG figures at\n the map exit on level 2\n or level 3 and zero COG\n figures are bleeding out. Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -121,7 +118,6 @@
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -178,7 +174,6 @@
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
             CreateLocustAiCardDeck(2);
             PlayerSelectsLocationDeck();
-            //TODO: Press Y to Continue
         }
 
         private void MissionEnd()
@@ -194,7 +189,6 @@
             Console.WriteLine("Which Location Level would you like to explore?");
             Console.WriteLine("2 - Level 2");
             Console.WriteLine("3 - Level 3");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "2":
@@ -207,13 +201,11 @@
                     PlayerSelectsLocationDeck();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -224,7 +216,6 @@
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nROADBLOCKS\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -273,7 +264,6 @@
             Console.WriteLine("\tdeal Marcus 1 wound each (for a total of 3 wounds");
             Console.WriteLine("\tdealt to Marcus).\n");
             Console.WriteLine("Press Y to contine");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -282,7 +272,6 @@
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 }

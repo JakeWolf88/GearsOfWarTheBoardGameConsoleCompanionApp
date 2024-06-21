@@ -115,7 +115,6 @@
             {
                 Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 1 Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -131,14 +130,12 @@
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
                 Console.WriteLine("\nHas a COG attempted to explore\n through the door at the end\n of level 2 Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":

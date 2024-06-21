@@ -89,7 +89,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             {
                 Console.WriteLine("\nHas a COG explored the door\n at the exit lof level 3 Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -104,14 +103,12 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
                 Console.WriteLine("\nHas Skorge been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -125,7 +122,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -193,7 +189,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -204,7 +199,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nHIVE\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -245,7 +239,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("\tweapons).\n");
             Console.WriteLine("Press Y to contine");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -254,7 +247,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
 

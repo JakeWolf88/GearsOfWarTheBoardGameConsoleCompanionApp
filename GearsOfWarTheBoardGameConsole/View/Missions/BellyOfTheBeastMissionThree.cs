@@ -87,7 +87,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         {
             Console.WriteLine("\nHas a player actived\n location 13B's equipment\n (found in level 3) Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -102,14 +101,12 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas the last card of the AI\n deck been resolved Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -123,7 +120,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -189,7 +185,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -200,7 +195,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         Console.WriteLine("\nBELLY OF THE BEAST\n");
         Console.ForegroundColor = ConsoleColor.Red;
@@ -253,7 +247,6 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("\t|__________________________| |___________________________|");
 
         Console.WriteLine("Press Y to contine");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -262,6 +255,5 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

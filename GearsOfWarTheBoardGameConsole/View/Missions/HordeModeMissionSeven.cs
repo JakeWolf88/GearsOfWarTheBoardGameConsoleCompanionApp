@@ -39,7 +39,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("2 - NORMAL");
             Console.WriteLine("3 - HARDCORE");
             Console.WriteLine("4 - INSANE");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "1":
@@ -58,7 +57,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     PickDifficutly();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void StartMission()
@@ -73,12 +71,9 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             }
         }
 
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public void SetupMission()
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
         {
             Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -92,7 +87,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     SetupMission();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void MissionSetup()
@@ -158,7 +152,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -172,14 +165,12 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageTwoActivated)
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -194,14 +185,12 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageThreeActivated)
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -216,13 +205,11 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
             if (_isStageFourActivated)
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -237,13 +224,11 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
             if (_isStageFiveActivated)
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -258,13 +243,11 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
             if (_isStageSixActivated)
             {
                 Console.WriteLine("\nHas the last Locust\n been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":

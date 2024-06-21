@@ -6,17 +6,18 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
     private bool _isStageThreeActivated;
-    private bool _isGameStillGoing;
 
     public SearchForTheStrandedMisisonPackOne(int numberOfPlayers, int missionNumber): base(numberOfPlayers, missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
-        _isGameStillGoing = true;
+        IsGameStillGoing = true;
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(0);
+        StartTimer();
         StartMission();
     }
 
@@ -25,7 +26,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         SetupMission();
         MissionSetup();
 
-        while (_isGameStillGoing)
+        while (IsGameStillGoing)
         {
             CogTurn();
             LocustTurn();
@@ -85,7 +86,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         {
             Console.WriteLine("\nAre there a number of ammunition\n tokens on this card equal to twice\n the number of players? Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -100,14 +100,12 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas a COG activated and resolved the\n equipment location card 17B Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -121,19 +119,17 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas the stranded entered the map exit Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
                 _isStageThreeActivated = false;
-                _isGameStillGoing = false;
+                IsGameStillGoing = false;
                 MissionEnd();
                 break;
                 case "N":
@@ -142,13 +138,12 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
     private void LocustTurn()
     {
-        if (!_isGameStillGoing)
+        if (!IsGameStillGoing)
         {
             return;
         }
@@ -221,18 +216,20 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
     }
     private void MissionEnd()
     {
+        CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nThe Stranded: \"I can't believe we made it! C'mon let's get");
         Console.WriteLine("this gear to safety and we can split the spoils there. But don't");
         Console.WriteLine("you COGSs go thinkin' that just because you saved me, you");
         Console.WriteLine("get to wipe me out! I've seen you go through ammo, and I'm");
         Console.WriteLine("not about to hand all this over!\"\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+        WaitForGameToEnd();
     }
 
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -243,7 +240,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nSEARCH FOR THE STRANDED\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -269,7 +265,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("\tto place ammo tokens on the map, These tokens");
         Console.WriteLine("\tmay not be picked up or placed on Weapon cards.\n");
         Console.WriteLine("Press Y to contine");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -278,6 +273,5 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

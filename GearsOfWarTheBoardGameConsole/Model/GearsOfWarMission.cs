@@ -6,33 +6,15 @@ public abstract class GearsOfWarMission
     private List<LocustAiCard> _missionLocustAiCardDeck;
     private List<List<LocationCard>> _missionLocationCardDeck;
     int _missionNumber;
-#pragma warning disable CS0414 // The field 'GearsOfWarMission._playerInterator' is assigned but its value is never used
     private int _playerInterator;
-#pragma warning restore CS0414 // The field 'GearsOfWarMission._playerInterator' is assigned but its value is never used
-#pragma warning disable CS0169 // The field 'GearsOfWarMission._isLocustPcPlaying' is never used
     private bool _isLocustPcPlaying;
-#pragma warning restore CS0169 // The field 'GearsOfWarMission._isLocustPcPlaying' is never used
     private int _numberOfPlayers;
     //private CancellationTokenSource cancellationTokenSource;
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;
     private Thread musicThread;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public GearsOfWarMission(int numberOfPlayers, int missionNumber)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
         _numberOfPlayers = numberOfPlayers;
         _missionNumber = missionNumber;
@@ -52,12 +34,9 @@ public abstract class GearsOfWarMission
 
     public Stopwatch Stopwatch { get; set; }
 
-
-
     public void SetupMission()
     {
         Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -71,7 +50,6 @@ public abstract class GearsOfWarMission
             SetupMission();
             break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 
 
@@ -198,7 +176,6 @@ public abstract class GearsOfWarMission
     {
         //TODO: create a new switch return statement
         Console.WriteLine("\nDoes card require another action? Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -210,13 +187,11 @@ public abstract class GearsOfWarMission
             AskIfSecondActionIsNeeded(stageNumber);
             break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 
     public void WaitForTurnToComplete()
     {
         Console.WriteLine("Press 'Y' when turn is complete or 'Q' if all players are bleeding out");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -228,7 +203,6 @@ public abstract class GearsOfWarMission
             WaitForTurnToComplete();
             break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 
     public void WaitForGameToEnd()
@@ -237,7 +211,6 @@ public abstract class GearsOfWarMission
         TimeSpan timeSpawn = TimeSpan.FromMilliseconds(Stopwatch.ElapsedMilliseconds);
         Console.WriteLine($"Total time played: {timeSpawn.Hours} hrs {timeSpawn.Minutes} min {timeSpawn.Seconds} sec");
         Console.WriteLine("Press 'Y' to return to main menu");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -250,7 +223,6 @@ public abstract class GearsOfWarMission
                 WaitForGameToEnd();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 
     public void SetupAudio(string audioLocation)
@@ -268,10 +240,13 @@ public abstract class GearsOfWarMission
     public void GameOver()
     {
         Console.WriteLine("\nAre you sure all players are bleeding out Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
+                if (CancellationTokenSource is not null)
+                {
+                    CancellationTokenSource.Cancel();
+                }
                 Console.WriteLine("\nGAME OVER!!!!!");
                 IsGameStillGoing = false;
                 Stopwatch.Stop();
@@ -283,7 +258,6 @@ public abstract class GearsOfWarMission
             default:
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("All players are bleeding out! Game over! ");
     }
 
@@ -292,9 +266,6 @@ public abstract class GearsOfWarMission
         Stopwatch = new();
         Stopwatch.Start();
     }
-
-
-
 
 
 

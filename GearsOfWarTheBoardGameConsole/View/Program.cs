@@ -13,11 +13,6 @@ MainMenu();
 
 void MainMenu()
 {
-    if (!musicThread.IsAlive)
-    {
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
-    }
-
     Console.WriteLine(@"                     ________                             ________   _____   __      __                ___________.__             __________                       .___   ________                             "); 
     Console.WriteLine(@"                    /  _____/  ____ _____ _______  ______ \_____  \_/ ____\ /  \    /  \_____ _______  \__    ___/|  |__   ____   \______   \ _________ _______  __| _/  /  _____/_____    _____   ____        ");
     Console.WriteLine(@"                    /   \  ____/ __ \\__  \\_  __ \/  ___/  /   |   \   __\  \   \/\/   /\__  \\_  __ \   |    |   |  |  \_/ __ \   |    |  _//  _ \__  \\_  __ \/ __ |  /   \  ___\__  \  /     \_/ __ \      ");
@@ -43,7 +38,7 @@ void MainMenu()
     Console.WriteLine("2 - Mission Pack 1");
     Console.WriteLine("3 - Community Missions");
     Console.WriteLine("4 - FAQS");
-    Console.WriteLine("5 - Quit\n\n\n");
+    Console.WriteLine("5 - Quit\n");
 
     switch (Console.ReadLine())
     {
@@ -57,7 +52,7 @@ void MainMenu()
             FaqMainMenu();
             break;
         case "5":
-        QuitGame();
+            QuitGame();
         break;
         default:
         MainMenu();
@@ -84,30 +79,25 @@ void BaseMissions()
     switch (Console.ReadLine())
     {
         case "1":
-        cancellationTokenSource.Cancel();
-        musicThread.Join();
-        EmergenceMissionOne missionStartOne = new(playerCount, 1);
-        break;
+            StopAudio();
+            EmergenceMissionOne missionStartOne = new(playerCount, 1);
+            break;
         case "2":
-        cancellationTokenSource.Cancel();
-        musicThread.Join();
-        ChinaShopMissionTwo missionStartTwo = new(playerCount, 2);
+            StopAudio();
+            ChinaShopMissionTwo missionStartTwo = new(playerCount, 2);
         break;
         case "3":
-        cancellationTokenSource.Cancel();
-        musicThread.Join();
-        BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
+            StopAudio();
+            BellyOfTheBeastMissionThree missionStartThree = new(playerCount, 3);
         break;
         case "4":
-            cancellationTokenSource.Cancel();
-            musicThread.Join();
-        RoadBlocksMissionFour missionStartFour = new(playerCount, 4);
+            StopAudio();
+            RoadBlocksMissionFour missionStartFour = new(playerCount, 4);
         break;
         case "5":
             if (playerCount is not 1)
             {
-                cancellationTokenSource.Cancel();
-                musicThread.Join();
+                StopAudio();
                 ScatteredMissionFive missionStartFive = new(playerCount, 5);
             }
             else
@@ -116,13 +106,11 @@ void BaseMissions()
             }
             break;
         case "6":
-            cancellationTokenSource.Cancel();
-            musicThread.Join();
+            StopAudio();
             HiveMissionSix missionStartSix = new(playerCount, 6);
             break;
         case "7":
-            cancellationTokenSource.Cancel();
-            musicThread.Join();
+            StopAudio();
             HordeModeMissionSeven missionStartSeven = new(playerCount, 7);
             break;
         case "8":
@@ -132,6 +120,7 @@ void BaseMissions()
         BaseMissions();
         break;
     }
+    SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
     MainMenu();
 }
 
@@ -147,12 +136,10 @@ void MissionPackOne()
     {
         case "1":
             StopAudio();
-            SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
             TheShowDownMissionPackOne missionStartEight = new(playerCount, 8);
             break;
         case "2":
             StopAudio();
-            SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
             SearchForTheStrandedMisisonPackOne missionStartNine = new(playerCount, 9);
             break;
         case "3":
@@ -162,6 +149,7 @@ void MissionPackOne()
             MissionPackOne();
             break;
     }
+    SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
     MainMenu();
 }
 
@@ -173,7 +161,6 @@ void FaqMainMenu()
     Console.WriteLine("3 - Insane difficulty rules");
     Console.WriteLine("4 - Mission Pack 1 FAQs\n");
     Console.WriteLine("5 - Back to Main Menu\n");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
     switch (Console.ReadLine().ToUpper())
     {
         case "1":
@@ -196,10 +183,8 @@ void FaqMainMenu()
             FaqMainMenu();
             break;
     }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
     Console.WriteLine("Press Y to continue");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
     switch (Console.ReadLine().ToUpper())
     {
         case "Y":
@@ -209,7 +194,6 @@ void FaqMainMenu()
             FaqMainMenu();
             break;
     }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 }
 
 async Task PlayMusicOnNewthread(string audioFilePath, CancellationToken cancellationToken)
@@ -267,7 +251,6 @@ int SelectPlayerCount()
         case "4":
         return 4;
         case "5":
-        StopAudio();
         MainMenu();
         break;
         default:
@@ -282,6 +265,8 @@ void SetupAudio(string audioLocation)
     cancellationTokenSource = new();
     cancellationToken = cancellationTokenSource.Token;
     musicThread = new Thread(async () => await PlayMusicOnNewthread(audioLocation, cancellationToken));
+    musicThread.Name = "MusicThread";
+    musicThread.IsBackground = true;
     musicThread.Start();
 }
 

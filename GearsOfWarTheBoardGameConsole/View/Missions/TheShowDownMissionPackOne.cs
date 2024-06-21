@@ -12,6 +12,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
         IsGameStillGoing = true;
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
@@ -84,7 +85,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         {
             Console.WriteLine("\nHas the Berserker been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -99,14 +99,12 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                     StageActivationPrompt();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageTwoActivated)
         {
             Console.WriteLine("\nHas level 2 been explored Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -121,14 +119,12 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         if (_isStageThreeActivated)
         {
             Console.WriteLine("\nHas General RAAM been killed Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -142,7 +138,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 StageActivationPrompt();
                 break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 
@@ -192,6 +187,8 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     }
     private void MissionEnd()
     {
+        CancellationTokenSource.Cancel();
+        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nYou charge toward the wounded General, hoping to finish him off.");
         Console.WriteLine("But before you can reach him, his loyal kryll descend from the sky,");
         Console.WriteLine("\tforcing you to retreat.");
@@ -199,12 +196,12 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("guttural tongue.\n");
         Console.WriteLine("You have a feeling you'll be meeting again real soon...\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
+        WaitForGameToEnd();
     }
 
     private void MissionSpecifics()
     {
         Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -215,7 +212,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         Console.WriteLine("\nTHE SHOWDOWN\n");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
@@ -273,7 +269,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("\tPalyers always ignore the facedown side of");
         Console.WriteLine("\tthis Enemy card.\n");
         Console.WriteLine("Press Y to contine");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         switch (Console.ReadLine().ToUpper())
         {
             case "Y":
@@ -282,6 +277,5 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 MissionSpecifics();
                 break;
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }
