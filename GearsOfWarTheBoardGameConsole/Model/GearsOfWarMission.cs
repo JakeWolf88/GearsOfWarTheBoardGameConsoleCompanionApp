@@ -106,7 +106,7 @@ public abstract class GearsOfWarMission
 
     public void DisplayLocationCardDeck(int levelStage)
     {
-         Console.WriteLine($"          Level {levelStage + 1} LOCATION SETUP: \n\n");
+        Console.WriteLine($"          Level {levelStage + 1} LOCATION SETUP: \n\n");
         foreach(LocationCard mission in _missionLocationCardDeck[levelStage])
         {
             Console.WriteLine($"      -------------");
@@ -115,7 +115,13 @@ public abstract class GearsOfWarMission
             Console.WriteLine($"\n{mission.Title}");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"\n{mission.Description} \n");
-            if (_missionNumber is 5)
+
+            if (_missionNumber is 5 && levelStage is 3)
+            {
+                Console.WriteLine($"Enemies spawned: (See text) \n\n");
+            }
+
+            if (_missionNumber is 5 && levelStage is not 3)
             {
                 switch (_numberOfPlayers)
                 {
@@ -123,13 +129,14 @@ public abstract class GearsOfWarMission
                         Console.WriteLine($"Enemies spawned: {mission.Enemies[0]} \n\n");
                         break;
                     case 3:
-                        Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
+                        Console.WriteLine($"Enemies spawned: For solo player on level: {mission.Enemies[0]} For two players on level: {mission.Enemies[1]} \n\n");
                         break;
                     default:
                         Console.WriteLine($"Enemies spawned: {mission.Enemies[1]} \n\n");
                         break;
                 }
             }
+
             else
             {
                 switch (_numberOfPlayers)
@@ -147,9 +154,7 @@ public abstract class GearsOfWarMission
                         Console.WriteLine($"Enemies spawned: {mission.Enemies[3]} \n\n");
                         break;
                 }
-
             }
-
         }
     }
 

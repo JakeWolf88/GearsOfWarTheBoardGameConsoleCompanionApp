@@ -267,6 +267,7 @@ int SelectPlayerCount()
         case "4":
         return 4;
         case "5":
+        StopAudio();
         MainMenu();
         break;
         default:
