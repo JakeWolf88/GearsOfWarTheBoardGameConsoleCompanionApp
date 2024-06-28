@@ -175,6 +175,11 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
 
         private void MissionEnd()
         {
+            if (CancellationTokenSource is null)
+            {
+                CancellationTokenSource.Cancel();
+            } 
+            SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
             Console.WriteLine("\n You meet up with the rest of your squad\n");
             Console.WriteLine("\"Carmine: Where's the Queen?");
             Console.WriteLine("Baird: She escaped on a reaver!");

@@ -12,7 +12,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         _isStageOneActivated = true;
         IsGameStillGoing = true;
         _stageNumber = 1;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\ImulsionMines.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\ImulsionMines.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(0);
@@ -167,7 +167,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsOfWar.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar.mp3");
         CreateLocustAiCardDeck(1);
         //TODO: Press Y to Continue
     }
@@ -175,7 +175,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\n\"Fenix: Control, this is Delta. We're clear. Resenator has been detonated.");
         Console.WriteLine("Control: You did it Marcus. Stand by. King ravens are en route.\"");
         Console.WriteLine("YOU WIN THE GAME!!!\n");

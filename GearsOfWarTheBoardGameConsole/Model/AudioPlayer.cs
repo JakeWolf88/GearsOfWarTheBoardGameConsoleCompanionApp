@@ -36,4 +36,15 @@ public class AudioPlayer
             }
         }
     }
+
+    public void PlayAudioOnce(string audioFilePath)
+    {
+       var waveOut = new WaveOutEvent();
+        var audioFileReader = new AudioFileReader(audioFilePath);
+        waveOut.Init(audioFileReader);
+        // Start playback
+        waveOut.Play();
+
+        //TODO: ADD CLEAN UP? DISPOSAL! NO LONGER USING USING STATEMENTS!!
+    }
 }

@@ -3,25 +3,27 @@ using System.Diagnostics;
 
 public abstract class GearsOfWarMission
 {
+    #region Private Fields
     private List<LocustAiCard> _missionLocustAiCardDeck;
     private List<List<LocationCard>> _missionLocationCardDeck;
     int _missionNumber;
-    private int _playerInterator;
     private bool _isLocustPcPlaying;
     private int _numberOfPlayers;
-    //private CancellationTokenSource cancellationTokenSource;
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;
     private Thread musicThread;
+    #endregion Private Fields
 
+    #region Constructor
     public GearsOfWarMission(int numberOfPlayers, int missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
         _missionNumber = missionNumber;
         _audioPlayer = new();
-        _playerInterator = 1;
     }
+    #endregion Constructor
 
+    #region Public Properties
     public bool IsLocustPcPlaying { get; set; }
 
     public List<LocustAiCard> MissionLocustAiCardDeck { get; set; }
@@ -34,6 +36,10 @@ public abstract class GearsOfWarMission
 
     public Stopwatch Stopwatch { get; set; }
 
+    public static string BasePath => AppDomain.CurrentDomain.BaseDirectory;
+    #endregion Public Properties
+
+    #region Public Methods
     public void SetupMission()
     {
         Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
@@ -51,7 +57,6 @@ public abstract class GearsOfWarMission
             break;
         }
     }
-
 
     public void CreateLocustAiCardDeck(int stageNumber)
     {
@@ -225,7 +230,7 @@ public abstract class GearsOfWarMission
         }
     }
 
-    public void SetupAudio(string audioLocation)
+    public void SetupAudioContinually(string audioLocation)
     {
         if (musicThread is not null)
         {
@@ -234,6 +239,17 @@ public abstract class GearsOfWarMission
         CancellationTokenSource = new();
         cancellationToken = CancellationTokenSource.Token;
         musicThread = new Thread(async () => await _audioPlayer.PlayAudio(audioLocation, cancellationToken));
+        musicThread.Start();
+    }
+
+    public void SetupAudioOneTime(string audioLocation)
+    {
+        //Call Dispose Method on music objects. 
+        if (musicThread is not null)
+        {
+            musicThread.Join();
+        }
+        musicThread = new Thread(() => _audioPlayer.PlayAudioOnce(audioLocation));
         musicThread.Start();
     }
 
@@ -266,8 +282,5 @@ public abstract class GearsOfWarMission
         Stopwatch = new();
         Stopwatch.Start();
     }
-
-
-
-
+    #endregion Public Methods
 }

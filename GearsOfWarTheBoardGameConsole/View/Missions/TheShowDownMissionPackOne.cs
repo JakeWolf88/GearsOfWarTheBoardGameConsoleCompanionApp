@@ -12,7 +12,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
         IsGameStillGoing = true;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TrainRideToHell.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\TrainRideToHell.mp3");
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
@@ -188,7 +188,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nYou charge toward the wounded General, hoping to finish him off.");
         Console.WriteLine("But before you can reach him, his loyal kryll descend from the sky,");
         Console.WriteLine("\tforcing you to retreat.");

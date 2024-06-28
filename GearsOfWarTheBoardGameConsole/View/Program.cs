@@ -5,10 +5,8 @@ using NAudio.Wave;
 Thread musicThread;
 CancellationTokenSource cancellationTokenSource;
 CancellationToken cancellationToken;
-string fullPath = AppDomain.CurrentDomain.BaseDirectory;
-string JacintoPrisonString = Path.GetFullPath(Path.Combine(fullPath, @"../../..", "Music/JacintoPrison.mp3"));
 
-SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
+SetupAudio(GearsOfWarMission.BasePath + @"\Music\14YearsAfterEDay.mp3");
 MainMenu();
 
 void MainMenu()
@@ -31,12 +29,12 @@ void MainMenu()
     Console.WriteLine(@"                                                                                                                   /    |    \  |_> >  |_> >                                                                   ");
     Console.WriteLine(@"                                                                                                                   \____|__  /   __/|   __/                                                                    ");
     Console.WriteLine(@"                                                                                                                           \/|__|   |__|                                                                       ");
-    Console.WriteLine("                                                                                                                                                                                                              \n");
+    Console.WriteLine("                                                                                                                                                                                                                ");
 
     Console.WriteLine("Main Menu");
     Console.WriteLine("1 - Base Missions");
     Console.WriteLine("2 - Mission Pack 1");
-    Console.WriteLine("3 - Community Missions");
+    Console.WriteLine("3 - Community Missions (Potential upcoming add-on)");
     Console.WriteLine("4 - FAQS");
     Console.WriteLine("5 - Quit\n");
 

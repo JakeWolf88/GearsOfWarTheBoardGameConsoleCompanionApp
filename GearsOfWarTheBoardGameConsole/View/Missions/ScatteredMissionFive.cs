@@ -256,6 +256,8 @@
 
         private void MissionEnd()
         {
+            CancellationTokenSource.Cancel();
+            SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
             Console.WriteLine("\n\"Control: Delta, according to Jack that grindlift should be operation now.");
             Console.WriteLine("Fenix: Thanks Control. All right, let;s give this lift a shove.\"\n");
             Console.WriteLine("YOU WIN THE GAME\n");

@@ -12,7 +12,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
         IsGameStillGoing = true;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\EphyraStreet.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\EphyraStreet.mp3");
         _stageNumber = 1;
         MissionSpecifics();
         CreateLocationCardDeck();
@@ -196,8 +196,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("Any dropped ammunition tokens remain on the map,");
         Console.WriteLine("but no additional ammunition tokens can be placed.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-
-        //TODO: Press Y to Continue
         DisplayLocationCardDeck(1);
     }
 
@@ -210,14 +208,12 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("only during activation of locusts, and has a defense value of 2.\n");
         Console.WriteLine("Spawn 1 Locust type C for each player at the exit of the map.");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-
-        //TODO: Press Y to Continue
         DisplayLocationCardDeck(1);
     }
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nThe Stranded: \"I can't believe we made it! C'mon let's get");
         Console.WriteLine("this gear to safety and we can split the spoils there. But don't");
         Console.WriteLine("you COGSs go thinkin' that just because you saved me, you");

@@ -14,7 +14,7 @@
             _isStageOneActivated = true;
             IsGameStillGoing = true;
             _stageNumber = 1;
-            SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
+            SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\HoldThemOff.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
             DisplayLocationCardDeck(0);
@@ -178,6 +178,8 @@
 
         private void MissionEnd()
         {
+            CancellationTokenSource.Cancel();
+            SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
             Console.WriteLine("\n\"Mortars are all clear Dizzy. Let's get to the drilling zone!");
             Console.WriteLine("I think we'll ride the rest of the way.\"");
             Console.WriteLine("YOU WIN THE GAME\n");

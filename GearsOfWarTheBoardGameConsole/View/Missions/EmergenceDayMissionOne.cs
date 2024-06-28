@@ -12,7 +12,7 @@ class EmergenceMissionOne : GearsOfWarMission
         _numberOfPlayers = numberOfPlayers;
         _isStageOneActivated = true;
         IsGameStillGoing = true;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\JacintoPrison.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\JacintoPrison.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(0);
@@ -111,7 +111,16 @@ class EmergenceMissionOne : GearsOfWarMission
 
     private void MissionSetup()
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"                        ___________                                                           ");
+        Console.WriteLine(@"                        \_   _____/ _____   ___________  ____   ____   ____   ____  ____      ");
+        Console.WriteLine(@"                         |    __)_ /     \_/ __ \_  __ \/ ___\_/ __ \ /    \_/ ___\/ __ \     ");
+        Console.WriteLine(@"                         |        \  Y Y  \  ___/|  | \/ /_/  >  ___/|   |  \  \__\  ___/     ");
+        Console.WriteLine(@"                        /_______  /__|_|  /\___  >__|  \___  / \___  >___|  /\___  >___  >    ");
+        Console.WriteLine(@"                                \/      \/     \/     /_____/      \/     \/     \/    \/     ");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nMission Setup\n");
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("Special Rules:\n");
         Console.WriteLine("After setting up the map, cover ");
         Console.WriteLine("each emergence hole with a ");
@@ -161,15 +170,12 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("\nThen move each Wretch 2 areas towards the nearest COG");
         Console.WriteLine("and each Drone 1 area towards the nearest COG");
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\AttackOfTheDrones.mp3");
-
-
-        //TODO: Press Y to Continue
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\AttackOfTheDrones.mp3");
     }
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nFenix: What are you doing here?");
         Console.WriteLine("Santiago: Getting you out. Here put this on.");
         Console.WriteLine("Fenix: You could get into a lot of trouble for doing this.");

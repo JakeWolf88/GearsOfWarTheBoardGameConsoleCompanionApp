@@ -12,7 +12,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         _isStageOneActivated = true;
         IsGameStillGoing = true;
         _stageNumber = 1;
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\TombsOfTheUnknowns.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\TombsOfTheUnknowns.mp3");
         MissionSpecifics();
         CreateLocationCardDeck();
         DisplayLocationCardDeck(0);
@@ -203,7 +203,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("Unlock the level 3 Location deck and explore it.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\MinhsDeath.mp3");
+        SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\MinhsDeath.mp3");
 
         //TODO: Press Y to Continue
         DisplayLocationCardDeck(2);
@@ -211,7 +211,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
     private void MissionEnd()
     {
         CancellationTokenSource.Cancel();
-        SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nThe Bersker howls in rage as the imulsion beam rips her apart.");
         Console.WriteLine("\"Fenix: Hey Cole, Baird - It's all clear.\"\n");
         Console.WriteLine("YOU WIN THE GAME!!!\n");
