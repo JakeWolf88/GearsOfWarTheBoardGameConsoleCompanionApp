@@ -163,17 +163,17 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("At the end of each players COG");
         Console.WriteLine("Order Step he removes 1 ammo");
         Console.WriteLine("token from his area and place it on");
-        Console.WriteLine("this card");
+        Console.WriteLine("this card\n");
         Console.WriteLine("OBJECTIVE: There are a number of ammunition");
         Console.WriteLine("tokens on this card equal to twice");
-        Console.WriteLine("the number of players");
+        Console.WriteLine("the number of players\n");
 
     }
 
     private void StageTwoBanner()
     {
         Console.WriteLine("\nSpecial Rules:\n");
-        Console.WriteLine("None");
+        Console.WriteLine("None\n");
         Console.WriteLine("OBJECTIVE: A COG activates and resolves the\n");
         Console.WriteLine("equipment location card 17B\n");
     }

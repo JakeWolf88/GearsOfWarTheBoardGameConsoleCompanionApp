@@ -142,7 +142,7 @@ class EmergenceMissionOne : GearsOfWarMission
     private void StageTwoBanner()
     {
         Console.WriteLine("\nSpecial Rules:\n");
-        Console.WriteLine("Locust figures cannot spawn.\n\n If an Ai card would spawn Locust\n figures, ignore the card and\n draw a new AI card.");
+        Console.WriteLine("Locust figures cannot spawn.\n\n If an Ai card would spawn Locust\n figures, ignore the card and\n draw a new AI card.\n");
         Console.WriteLine("OBJECTIVE: There are zero locust figures in play\n");
     }
 
