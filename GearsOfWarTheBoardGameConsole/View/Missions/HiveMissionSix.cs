@@ -20,7 +20,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             _isStageOneActivated = true;
             IsGameStillGoing = true;
             _stageNumber = 1;
-            //SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
+            SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar2SoundTrack\DenizensOfTheDeep.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
             DisplayLocationCardDeck(0);
@@ -170,15 +170,13 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("replace the Kantus Enemy card with the Skorge Enemy card.");
             Console.WriteLine("Then spawn Skorge on the map tile 17B's equipment area.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            //TODO: Press Y to Continue
+            CancelMusic();
+            SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar2SoundTrack\InsurmountableOdds.mp3");
         }
 
         private void MissionEnd()
         {
-            if (CancellationTokenSource is null)
-            {
-                CancellationTokenSource.Cancel();
-            } 
+            CancelMusic(); 
             SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
             Console.WriteLine("\n You meet up with the rest of your squad\n");
             Console.WriteLine("\"Carmine: Where's the Queen?");
@@ -253,12 +251,5 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     break;
             }
         }
-
-
-
-
-
-
-
     }
 }

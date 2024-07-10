@@ -152,6 +152,7 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("When you regain your feet, you see a pillar of black smoke billowing from ");
         Console.WriteLine("the open doorway. A swarm of enemies charge through the smoke.\n");
         Console.WriteLine("Spawn these locust at the map exit:");
+        SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\LocustSounds\locust-roar.mp3");
         switch (_numberOfPlayers)
         {
             case 1:
@@ -169,12 +170,12 @@ class EmergenceMissionOne : GearsOfWarMission
         }
         Console.WriteLine("\nThen move each Wretch 2 areas towards the nearest COG");
         Console.WriteLine("and each Drone 1 area towards the nearest COG");
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\AttackOfTheDrones.mp3");
     }
     private void MissionEnd()
     {
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nFenix: What are you doing here?");
         Console.WriteLine("Santiago: Getting you out. Here put this on.");

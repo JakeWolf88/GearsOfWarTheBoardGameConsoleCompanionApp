@@ -166,7 +166,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         Console.WriteLine("Shuffle the AI discard pile into the deck. Each player then");
         Console.WriteLine("spawns 1 Locust B at an emergence hole on map tile 13B.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar.mp3");
         CreateLocustAiCardDeck(1);
         //TODO: Press Y to Continue
@@ -174,7 +174,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
 
     private void MissionEnd()
     {
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\n\"Fenix: Control, this is Delta. We're clear. Resenator has been detonated.");
         Console.WriteLine("Control: You did it Marcus. Stand by. King ravens are en route.\"");

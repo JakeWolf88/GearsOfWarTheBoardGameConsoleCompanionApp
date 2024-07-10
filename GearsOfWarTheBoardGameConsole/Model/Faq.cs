@@ -185,20 +185,24 @@ namespace GearsOfWarTheBoardGameConsole.Model
         {
             Console.WriteLine("New Card Clarifications\n");
             Console.WriteLine("Scorcher Special Weapon Cards");
-            Console.WriteLine("These new Special Wapon cards are");
+            Console.WriteLine("These new Special Weapon cards are");
             Console.WriteLine("added to the existing deck of");
             Console.WriteLine("Special Wapon cards\n");
-            Console.WriteLine("General RAAM Enemy Card");   
+            Console.WriteLine("General RAAM Enemy Card");
             Console.WriteLine("The general RAAM Enemy card has");
             Console.WriteLine("two unique sides (Side A and Side B).");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
+            Console.WriteLine("See Rules card #6\n");
+            Console.WriteLine("Feral Berserker Enemy Card");
+            Console.WriteLine("The Feral Bersrker's Omen ability will");
+            Console.WriteLine("only trigger if the Feral Berserker is heavily");
+            Console.WriteLine("wounded (the 3 health value. faceup).\n");
+            Console.WriteLine("Grenadier and Flame Grenadier Enemy Cards");
+            Console.WriteLine("When a COG picks up a dropped weapon");
+            Console.WriteLine("marker corresponding to one of these");
+            Console.WriteLine("enemies, instead of gaining a weapon or");
+            Console.WriteLine("ammo corresponding to the printed weapon,");
+            Console.WriteLine("he gains the weapon, ammo, or grenades");
+            Console.WriteLine("listed on the appropriate Enemy card.\n");
         }
     }
 }

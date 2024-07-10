@@ -174,7 +174,6 @@ void FaqMainMenu()
             Faq.MissionPackOneFaqs();
             break;
         case "5":
-            StopAudio();
             MainMenu();
             return;
         default:

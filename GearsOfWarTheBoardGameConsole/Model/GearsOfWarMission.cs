@@ -253,6 +253,14 @@ public abstract class GearsOfWarMission
         musicThread.Start();
     }
 
+    public void CancelMusic()
+    {
+        if (CancellationTokenSource is not null)
+        {
+            CancellationTokenSource.Cancel();
+        }
+    }
+
     public void GameOver()
     {
         Console.WriteLine("\nAre you sure all players are bleeding out Y/N?");

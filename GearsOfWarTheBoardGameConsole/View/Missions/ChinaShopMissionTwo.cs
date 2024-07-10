@@ -202,7 +202,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("Fenix: Ok Dom, drop the Hammer!\"\n");
         Console.WriteLine("Unlock the level 3 Location deck and explore it.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\MinhsDeath.mp3");
 
         //TODO: Press Y to Continue
@@ -210,7 +210,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
     }
     private void MissionEnd()
     {
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nThe Bersker howls in rage as the imulsion beam rips her apart.");
         Console.WriteLine("\"Fenix: Hey Cole, Baird - It's all clear.\"\n");
