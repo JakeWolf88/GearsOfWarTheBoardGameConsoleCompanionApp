@@ -6,12 +6,13 @@ public abstract class GearsOfWarMission
     #region Private Fields
     private List<LocustAiCard> _missionLocustAiCardDeck;
     private List<List<LocationCard>> _missionLocationCardDeck;
-    int _missionNumber;
+    private int _missionNumber;
     private bool _isLocustPcPlaying;
     private int _numberOfPlayers;
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;
     private Thread musicThread;
+    private Random random = new Random();
     #endregion Private Fields
 
     #region Constructor
@@ -64,7 +65,7 @@ public abstract class GearsOfWarMission
         Shuffle(_missionLocustAiCardDeck);
     }
 
-    static void Shuffle<T>(List<T> list)
+    void Shuffle<T>(List<T> list)
     {
         Random rng = new Random();
         int n = list.Count;
@@ -143,19 +144,8 @@ public abstract class GearsOfWarMission
 
     public void DisplayLocustAiCard(int stageNumber)
     {
-        if (_missionLocustAiCardDeck.Count.Equals(0))
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(@"           ________                   __          _________.__              _____   _____ .__               .___  ");
-            Console.WriteLine(@"           \______ \    ____   ____  |  | __     /   _____/|  |__   __ __ _/ ____\_/ ____\|  |    ____    __| _/   ");
-            Console.WriteLine(@"            |    |  \ _/ __ \_/ ___\ |  |/ /     \_____  \ |  |  \ |  |  \\   __\ \   __\ |  |  _/ __ \  / __ |         ");
-            Console.WriteLine(@"            |    `   \\  ___/\  \___ |    <      /        \|   Y  \|  |  / |  |    |  |   |  |__\  ___/ / /_/ |          ");
-            Console.WriteLine(@"           /_______  / \___  >\___  >|__|_ \    /_______  /|___|  /|____/  |__|    |__|   |____/ \___  >\____ |        ");
-            Console.WriteLine(@"                   \/      \/     \/      \/            \/      \/                                   \/      \/       ");
-            Console.ForegroundColor = ConsoleColor.White;
-            CreateLocustAiCardDeck(stageNumber);
-            Shuffle(_missionLocustAiCardDeck);
-        }
+        CheckIfDeckShouldBeShuffled(stageNumber);
+
         Console.WriteLine("_______________________");
         Console.WriteLine("|                     |");
         Console.ForegroundColor = ConsoleColor.Red;
@@ -166,6 +156,9 @@ public abstract class GearsOfWarMission
         Console.WriteLine("|                     |");
         Console.WriteLine("=======================");
 
+        PlayLocustSound(_missionLocustAiCardDeck[0].LocustSounds);
+
+
         if (_missionLocustAiCardDeck[0].HasASecondDraw)
         {
             _missionLocustAiCardDeck.RemoveAt(0);
@@ -174,6 +167,39 @@ public abstract class GearsOfWarMission
         else
         {
             _missionLocustAiCardDeck.RemoveAt(0);
+        } 
+    }
+
+    private async void PlayLocustSound(List<String> testList)
+    {
+        int randomNumberOdd = random.Next(0, 3);
+        int randomNumber = random.Next(0, 10000);
+
+        if (randomNumberOdd == 0) 
+        {
+            if (testList.Count > 0)
+            {
+                await Task.Delay(randomNumber);
+                Shuffle(testList);
+                SetupAudioOneTime(BasePath + @"\Music\LocustSounds\" + testList[0]);
+            }
+        }
+    }
+
+    private void CheckIfDeckShouldBeShuffled(int stagenumber)
+    {
+        if (_missionLocustAiCardDeck.Count.Equals(0))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"           ________                   __          _________.__              _____   _____ .__               .___  ");
+            Console.WriteLine(@"           \______ \    ____   ____  |  | __     /   _____/|  |__   __ __ _/ ____\_/ ____\|  |    ____    __| _/   ");
+            Console.WriteLine(@"            |    |  \ _/ __ \_/ ___\ |  |/ /     \_____  \ |  |  \ |  |  \\   __\ \   __\ |  |  _/ __ \  / __ |         ");
+            Console.WriteLine(@"            |    `   \\  ___/\  \___ |    <      /        \|   Y  \|  |  / |  |    |  |   |  |__\  ___/ / /_/ |          ");
+            Console.WriteLine(@"           /_______  / \___  >\___  >|__|_ \    /_______  /|___|  /|____/  |__|    |__|   |____/ \___  >\____ |        ");
+            Console.WriteLine(@"                   \/      \/     \/      \/            \/      \/                                   \/      \/       ");
+            Console.ForegroundColor = ConsoleColor.White;
+            CreateLocustAiCardDeck(stagenumber);
+            Shuffle(_missionLocustAiCardDeck);
         }
     }
 
