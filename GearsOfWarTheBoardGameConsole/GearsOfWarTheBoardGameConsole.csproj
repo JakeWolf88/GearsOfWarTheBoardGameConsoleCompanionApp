@@ -81,6 +81,24 @@
     <None Update="Music\LocustSounds\Boomer\locust-boom.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer2.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer3.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer4.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer5.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\Boomer\locust-boomer6.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Music\LocustSounds\Boomer\locust-crush.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -171,6 +189,36 @@
     <None Update="Music\LocustSounds\Kantus\kantus-kill-you.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard10.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard2.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard3.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard4.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard5.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard6.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard7.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard8.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\LocustSounds\TheronGuard\locust-theron-guard9.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Music\MinhsDeath.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -180,6 +228,10 @@
     <None Update="Music\TrainRideToHell.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Music\LocustSounds\TheronGuard\" />
   </ItemGroup>
 
 </Project>
