@@ -16,7 +16,7 @@
             _isStageOneActivated = true;
             IsGameStillGoing = true;
             _stageNumber = 1;
-            //SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\HoldThemOff.mp3");
+            SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar2SoundTrack\Hollow.mp3");
             MissionSpecifics();
             CreateLocationCardDeck();
             DisplayLocationCardDeck(0);
@@ -37,12 +37,9 @@
             }
         }
 
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public void SetupMission()
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
         {
             Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -56,7 +53,6 @@
                     SetupMission();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void MissionSetup()
@@ -150,14 +146,12 @@
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             if (_isStageThreeActivated)
             {
                 Console.WriteLine("\nAre all COG figures on map 17B,\n no COG figures are bleeding out,\n and there are no Grinders in play Y/N?");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 switch (Console.ReadLine().ToUpper())
                 {
                     case "Y":
@@ -171,7 +165,6 @@
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -237,7 +230,6 @@
             Console.WriteLine("Explore level 3 of the map, spawning Locust figures based on the");
             Console.WriteLine("number of players on that map. Then place a door at the end of level 3.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            //TODO: Press Y to Continue
         }
 
         private void StageTwoEnd()
@@ -251,12 +243,11 @@
             Console.WriteLine("Grinder on any empty area of Map Tile 17B. In a four-player game,");
             Console.WriteLine("Kantus and Boomer figures may be used as Grinders.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            //TODO: Press Y to Continue
         }
 
         private void MissionEnd()
         {
-            CancellationTokenSource.Cancel();
+            CancelMusic();
             SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
             Console.WriteLine("\n\"Control: Delta, according to Jack that grindlift should be operation now.");
             Console.WriteLine("Fenix: Thanks Control. All right, let;s give this lift a shove.\"\n");

@@ -13,6 +13,5 @@ public class LocustAiCard
     public string PrimaryAttack { get; set; }
     public string OtherWiseAttack { get; set; }
     public bool HasASecondDraw { get; set; }
-    public List<string> LocustSounds { get; set; } = new List<string>();
-
+    public List<string> LocustSounds { get; set; }
 }

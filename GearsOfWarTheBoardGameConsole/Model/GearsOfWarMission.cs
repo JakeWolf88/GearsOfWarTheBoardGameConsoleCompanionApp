@@ -119,7 +119,6 @@ public abstract class GearsOfWarMission
                         break;
                 }
             }
-
             else
             {
                 switch (_numberOfPlayers)
@@ -204,7 +203,6 @@ public abstract class GearsOfWarMission
 
     public void AskIfSecondActionIsNeeded(int stageNumber)
     {
-        //TODO: create a new switch return statement
         Console.WriteLine("\nDoes card require another action? Y/N?");
         switch (Console.ReadLine().ToUpper())
         {

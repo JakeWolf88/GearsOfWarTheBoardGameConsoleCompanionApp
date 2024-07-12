@@ -261,7 +261,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                         StageActivationPrompt();
                         break;
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -305,7 +304,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     break;
             }
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
-            //TODO: Press Y to Continue
         }
 
         private void StageTwoEnd()
@@ -418,6 +416,8 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
 
         private void MissionEnd()
         {
+            CancelMusic();
+            SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsOfWar2SoundTrack\horde-victory-theme.mp3");
             Console.WriteLine("\n\"Myrrah: They do not understand. They do not know why we wage");
             Console.WriteLine("this war. Why we will fight, and fight and fight... Until we win...");
             Console.WriteLine("Or we die... And we are not dead yet.\"\n");
@@ -428,7 +428,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -439,7 +438,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nHORDE MODE\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -495,7 +493,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("\thole area has at least two Locust figures.\n");
             Console.WriteLine("Press Y to contine");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -504,7 +501,6 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 }

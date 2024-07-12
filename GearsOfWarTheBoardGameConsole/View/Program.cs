@@ -127,7 +127,7 @@ void MissionPackOne()
     int playerCount = SelectPlayerCount();
     Console.WriteLine("\n \n Select Your Mission: \n");
     Console.WriteLine("1- The Showdown");
-    Console.WriteLine("2- Search For The Stranded");
+    Console.WriteLine("2- Search For The Stranded\n");
     Console.WriteLine("3- Back To Main Menu\n");
 
     switch (Console.ReadLine())
@@ -234,7 +234,7 @@ int SelectPlayerCount()
     Console.WriteLine("1");
     Console.WriteLine("2");
     Console.WriteLine("3");
-    Console.WriteLine("4");
+    Console.WriteLine("4\n");
     Console.WriteLine("5- Back To Main Menu\n");
 
     switch (Console.ReadLine())

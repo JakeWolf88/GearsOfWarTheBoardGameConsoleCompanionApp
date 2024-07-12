@@ -15,7 +15,9 @@ class LocustAiCardDeck
     private List<string> _BerserkerSounds = new() { "Berserker\\locust-berserker1.mp3", "Berserker\\locust-berserker2.mp3", "Berserker\\locust-berserker3.mp3", "Berserker\\locust-berserker4.mp3", 
                                                     "Berserker\\locust-berserker5.mp3", "Berserker\\locust-berserker6.mp3", "Berserker\\locust-berserker7.mp3", "Berserker\\locust-berserker8.mp3", 
                                                     "Berserker\\locust-berserker9.mp3", "Berserker\\locust-berserker10.mp3", "Berserker\\locust-berserker11.mp3" };
-    private List<string> _theronGuardSounds = new() { "TheronGuard\\locust-theron-guard1.mp3", "TheronGuard\\locust-theron-guard2.mp3", "TheronGuard\\locust-theron-guard3.mp3", "TheronGuard\\locust-theron-guard4.mp3", "TheronGuard\\locust-theron-guard5.mp3", "TheronGuard\\locust-theron-guard6.mp3", "TheronGuard\\locust-theron-guard7.mp3", "TheronGuard\\locust-theron-guard8.mp3", "TheronGuard\\locust-theron-guard9.mp3", "TheronGuard\\locust-theron-guard10.mp3" };
+    private List<string> _theronGuardSounds = new() { "TheronGuard\\locust-theron-guard1.mp3", "TheronGuard\\locust-theron-guard2.mp3", "TheronGuard\\locust-theron-guard3.mp3", "TheronGuard\\locust-theron-guard4.mp3",
+                                                      "TheronGuard\\locust-theron-guard5.mp3", "TheronGuard\\locust-theron-guard6.mp3", "TheronGuard\\locust-theron-guard7.mp3", "TheronGuard\\locust-theron-guard8.mp3", 
+                                                      "TheronGuard\\locust-theron-guard9.mp3", "TheronGuard\\locust-theron-guard10.mp3" };
 
     public LocustAiCardDeck(int missionNumber, int stageNumber)
     {

@@ -30,6 +30,12 @@
     <None Update="Music\GearsOfWar2SoundTrack\DenizensOfTheDeep.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Music\GearsOfWar2SoundTrack\Hollow.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Music\GearsOfWar2SoundTrack\horde-victory-theme.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Music\GearsOfWar2SoundTrack\InsurmountableOdds.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
