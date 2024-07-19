@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GearsOfWarTheBoardGameConsole.View.Missions
+﻿namespace GearsOfWarTheBoardGameConsole.View.Missions
 {
     internal class HiveMissionSix : GearsOfWarMission
     {
-        private int _playerInterator = 1;
+        private int _playerIterator = 1;
         private int _numberOfPlayers;
         private int _stageNumber;
         private bool _isStageOneActivated;
@@ -74,13 +68,13 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             {
                 StageTwoBanner();
             }
-            Console.WriteLine($"Player {_playerInterator}'s turn");
+            Console.WriteLine($"Player {_playerIterator}'s turn");
             StageActivationPrompt();
-            if (_playerInterator == _numberOfPlayers)
+            if (_playerIterator == _numberOfPlayers)
             {
-                _playerInterator = 0;
+                _playerIterator = 0;
             }
-            _playerInterator++;
+            _playerIterator++;
         }
 
         private void StageActivationPrompt()
@@ -166,7 +160,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("Fenix: What the hell are you talking about?");
             Console.WriteLine("Myrrah: It no longer matters. Skorge, destroy them!\"\n");
             Console.WriteLine("Place map tile 17B at the map exit (do not use the Location card for");
-            Console.WriteLine("equipment ord spawning). Then remove all Kantus from the amp and");
+            Console.WriteLine("equipment or spawning). Then remove all Kantus from the map and");
             Console.WriteLine("replace the Kantus Enemy card with the Skorge Enemy card.");
             Console.WriteLine("Then spawn Skorge on the map tile 17B's equipment area.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");

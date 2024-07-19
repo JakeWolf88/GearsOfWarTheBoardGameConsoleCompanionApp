@@ -1,6 +1,6 @@
 public class TheShowDownMissionPackOne: GearsOfWarMission
 {
-    private int _playerInterator = 1;
+    private int _playerIterator = 1;
     private int _numberOfPlayers;
     private int _stageNumber;
     private bool _isStageOneActivated;
@@ -70,13 +70,13 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         {
             StageTwoBanner();
         }
-        Console.WriteLine($"Player {_playerInterator}'s turn");
+        Console.WriteLine($"Player {_playerIterator}'s turn");
         StageActivationPrompt();
-        if (_playerInterator == _numberOfPlayers)
+        if (_playerIterator == _numberOfPlayers)
         {
-            _playerInterator = 0;
+            _playerIterator = 0;
         }
-        _playerInterator++;
+        _playerIterator++;
     }
 
     private void StageActivationPrompt()
@@ -160,7 +160,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     private void StageOneBanner()
     {
         Console.WriteLine("\nSpecial Rules:\n");
-        Console.WriteLine("While unwounded, the Feral\n Bezerker may ony be delt wounds\n by scorchers or Bolo Grenades.\n After it is killed, return the Feral\n Beserker card to the box and\n unlock level 2.");
+        Console.WriteLine("While unwounded, the Feral\n Bezerker may ony be delt wounds\n by scorchers or Bolo Grenades.\n After it is killed, return the Feral\n Beserker card to the box and\n unlock level 2.\n");
         Console.WriteLine("OBJECTIVE: Level 2 has been explored\n");
     }
 
@@ -173,7 +173,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
 
         private void StageOneEnd()
     {
-
         Console.WriteLine("\nUpdate the cards in the deck and enemey AI as follows:");
         Console.WriteLine("A: Grenadier, B: Palace Guard, C: General Raam\n");
         Console.WriteLine("Carefully remove all the AI Butcher cards from AI deck and from");
@@ -187,7 +186,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
     }
     private void MissionEnd()
     {
-        CancellationTokenSource.Cancel();
+        CancelMusic();
         SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nYou charge toward the wounded General, hoping to finish him off.");
         Console.WriteLine("But before you can reach him, his loyal kryll descend from the sky,");
@@ -216,7 +215,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Maps Size: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("Medium\n");
+        Console.Write("Medium\n\n");
         Console.WriteLine("This mission pits the COGs against two very");
         Console.WriteLine("dangerous Locusts. First they must overcome a");
         Console.WriteLine("savage Berserker, and then they must face off and");
@@ -266,7 +265,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("\tgame effects will force players to flip this card");
         Console.WriteLine("\tover. Whichever side is currently faceup displays");
         Console.WriteLine("\tthe current stats and abilities for General RAAM.");
-        Console.WriteLine("\tPalyers always ignore the facedown side of");
+        Console.WriteLine("\tPlayers always ignore the facedown side of");
         Console.WriteLine("\tthis Enemy card.\n");
         Console.WriteLine("Press Y to contine");
         switch (Console.ReadLine().ToUpper())

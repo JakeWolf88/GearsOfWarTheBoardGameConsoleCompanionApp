@@ -262,8 +262,6 @@ void SetupAudio(string audioLocation)
     cancellationTokenSource = new();
     cancellationToken = cancellationTokenSource.Token;
     musicThread = new Thread(async () => await PlayMusicOnNewthread(audioLocation, cancellationToken));
-    musicThread.Name = "MusicThread";
-    musicThread.IsBackground = true;
     musicThread.Start();
 }
 

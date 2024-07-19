@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GearsOfWarTheBoardGameConsole.View.Missions
+﻿namespace GearsOfWarTheBoardGameConsole.View.Missions
 {
     internal class HordeModeMissionSeven : GearsOfWarMission
     {
-        private int _playerInterator = 1;
+        private int _playerIterator = 1;
         private int _numberOfPlayers;
         private int _stageNumber;
         private bool _isStageOneActivated;
@@ -123,13 +117,13 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             {
                 StageSixBanner();
             }
-            Console.WriteLine($"Player {_playerInterator}'s turn");
+            Console.WriteLine($"Player {_playerIterator}'s turn");
             StageActivationPrompt();
-            if (_playerInterator == _numberOfPlayers)
+            if (_playerIterator == _numberOfPlayers)
             {
-                _playerInterator = 0;
+                _playerIterator = 0;
             }
-            _playerInterator++;
+            _playerIterator++;
         }
 
         private void LocustTurn()
@@ -459,7 +453,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.WriteLine("During setup, players choose");
             Console.WriteLine("\twhich diffictuly setting they wish to use for this");
             Console.WriteLine("\tsession. This choice will determine how dense");
-            Console.WriteLine("\tthe map is and how many new wapons will be");
+            Console.WriteLine("\tthe map is and how many new weapons will be");
             Console.WriteLine("\tavailable. Regardless of their choice, the map");
             Console.WriteLine("\talways consists of a single level (there is no");
             Console.WriteLine("\texploring in this mission).\n");
@@ -483,7 +477,7 @@ namespace GearsOfWarTheBoardGameConsole.View.Missions
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("@ Spawning: ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Most Misison cards instruct the players to");
+            Console.WriteLine("Most Mission cards instruct the players to");
             Console.WriteLine("\tspawn Locust figures \"as evenly as possible\". Players");
             Console.WriteLine("\tmay spawn these figures however they wish, as long");
             Console.WriteLine("\tas they do not place a second Locust figure into the");

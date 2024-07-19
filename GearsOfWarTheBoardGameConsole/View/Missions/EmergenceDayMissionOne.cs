@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 class EmergenceMissionOne : GearsOfWarMission
 {
-    private int _playerInterator = 1;
+    private int _playerIterator = 1;
     private int _numberOfPlayers;
     private bool _isStageOneActivated;
     private bool _isStageTwoActivated;
@@ -43,13 +43,13 @@ class EmergenceMissionOne : GearsOfWarMission
         {
             StageTwoBanner();
         }
-        Console.WriteLine($"Player {_playerInterator}'s turn");
+        Console.WriteLine($"Player {_playerIterator}'s turn");
         StageActivationPrompt();
-        if (_playerInterator == _numberOfPlayers)
+        if (_playerIterator == _numberOfPlayers)
         {
-            _playerInterator = 0;
+            _playerIterator = 0;
         }
-        _playerInterator++;
+        _playerIterator++;
     }
 
     private void LocustTurn()
