@@ -395,15 +395,13 @@ class LocustAiCardDeck
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[106]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[107]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[108]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[20]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[21]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[22]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[23]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[109]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[110]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[111]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[112]);
         }
         else
         {
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[101]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[102]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[103]);
@@ -412,12 +410,12 @@ class LocustAiCardDeck
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[106]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[107]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[108]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
-            _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[113]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[114]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[115]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[116]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
+            _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);
         }
     }
     private void PopulateMissionNineCards()
