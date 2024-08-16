@@ -37,24 +37,6 @@
             }
         }
 
-        public void SetupMission()
-        {
-            Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
-            switch (Console.ReadLine().ToUpper())
-            {
-                case "Y":
-                    CreateLocustAiCardDeck(1);
-                    IsLocustPcPlaying = true;
-                    break;
-                case "N":
-                    IsLocustPcPlaying = false;
-                    break;
-                default:
-                    SetupMission();
-                    break;
-            }
-        }
-
         private void MissionSetup()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;

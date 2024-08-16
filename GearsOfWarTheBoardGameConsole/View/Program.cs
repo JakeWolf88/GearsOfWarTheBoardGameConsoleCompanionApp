@@ -36,7 +36,7 @@ void MainMenu()
     Console.WriteLine("Main Menu");
     Console.WriteLine("1 - Base Missions");
     Console.WriteLine("2 - Mission Pack 1");
-    Console.WriteLine("3 - Community Missions (Potential upcoming add-on)");
+    Console.WriteLine("3 - Community Missions (Potential upcoming update)");
     Console.WriteLine("4 - FAQS");
     Console.WriteLine("5 - Quit\n");
 

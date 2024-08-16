@@ -3,18 +3,19 @@ using System.Diagnostics;
 public abstract class GearsOfWarMission
 {
     #region Private Fields
-    private List<LocustAiCard> _missionLocustAiCardDeck;
-    private List<List<LocationCard>> _missionLocationCardDeck;
+    private List<LocustAiCard>? _missionLocustAiCardDeck;
+    private List<List<LocationCard>>? _missionLocationCardDeck;
     private int _missionNumber;
     private bool _isLocustPcPlaying;
     private int _numberOfPlayers;
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;
-    private Thread musicThread;
+    private Thread? musicThread;
     private Random random = new Random();
     #endregion Private Fields
 
     #region Constructor
+
     public GearsOfWarMission(int numberOfPlayers, int missionNumber)
     {
         _numberOfPlayers = numberOfPlayers;
@@ -24,22 +25,25 @@ public abstract class GearsOfWarMission
     #endregion Constructor
 
     #region Public Properties
+
     public bool IsLocustPcPlaying { get; set; }
 
-    public List<LocustAiCard> MissionLocustAiCardDeck { get; set; }
+    public List<LocustAiCard>? MissionLocustAiCardDeck { get; set; }
     
-    public List<LocationCard> MissionLocationCardDeck { get; set; }
+    public List<LocationCard>? MissionLocationCardDeck { get; set; }
 
-    public CancellationTokenSource CancellationTokenSource { get; set; }
+    public CancellationTokenSource? CancellationTokenSource { get; set; }
 
     public bool IsGameStillGoing { get; set; }
 
-    public Stopwatch Stopwatch { get; set; }
+    public Stopwatch? Stopwatch { get; set; }
 
     public static string BasePath => AppDomain.CurrentDomain.BaseDirectory;
+
     #endregion Public Properties
 
     #region Public Methods
+
     public void SetupMission()
     {
         Console.WriteLine("Would you like the computer to draw AI Locust cards? Y/N");
@@ -267,7 +271,7 @@ public abstract class GearsOfWarMission
 
     public void SetupAudioOneTime(string audioLocation)
     {
-        //Call Dispose Method on music objects. 
+        //TODO: Call Dispose Method on music objects. 
         if (musicThread is not null)
         {
             musicThread.Join();
@@ -313,5 +317,6 @@ public abstract class GearsOfWarMission
         Stopwatch = new();
         Stopwatch.Start();
     }
+
     #endregion Public Methods
 }

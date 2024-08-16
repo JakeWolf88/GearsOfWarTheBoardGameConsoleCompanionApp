@@ -1,6 +1,5 @@
 class LocustAiCardDeck
 {
-    private int _missionNumber;
     private Dictionary<int, LocustAiCard> _locustAiCardDeck;
     private List<LocustAiCard> _missionlocustAiCardDeck;
     private List<string> _droneSounds = new() { "Drone\\locust-advancing.mp3", "Drone\\locust-attack.mp3", "Drone\\locust-die-ground-walker.mp3", "Drone\\locust-hostiles.mp3", 
