@@ -6,7 +6,6 @@ public abstract class GearsOfWarMission
     private List<LocustAiCard>? _missionLocustAiCardDeck;
     private List<List<LocationCard>>? _missionLocationCardDeck;
     private int _missionNumber;
-    private bool _isLocustPcPlaying;
     private int _numberOfPlayers;
     private CancellationToken cancellationToken;
     private AudioPlayer _audioPlayer;

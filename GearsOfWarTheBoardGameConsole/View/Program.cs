@@ -1,6 +1,5 @@
 ﻿using GearsOfWarTheBoardGameConsole.Model;
 using GearsOfWarTheBoardGameConsole.View.Missions;
-using NAudio.Wave;
 
 Thread musicThread;
 CancellationTokenSource cancellationTokenSource;
