@@ -119,7 +119,7 @@ void BaseMissions()
         BaseMissions();
         break;
     }
-    SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
+    SetupAudio(GearsOfWarMission.BasePath + @"\Music\14YearsAfterEDay.mp3");
     MainMenu();
 }
 
@@ -148,7 +148,7 @@ void MissionPackOne()
             MissionPackOne();
             break;
     }
-    SetupAudio(@"C:\Dev\VisualStudioCode\GearsOfWarTheBoardGameConsole\Music\14YearsAfterEDay.mp3");
+    SetupAudio(GearsOfWarMission.BasePath + @"\Music\14YearsAfterEDay.mp3");
     MainMenu();
 }
 
