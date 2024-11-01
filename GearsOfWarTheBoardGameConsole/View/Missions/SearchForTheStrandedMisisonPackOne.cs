@@ -182,33 +182,36 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
     {
         Console.WriteLine("\nSpecial Rules:\n");
         Console.WriteLine("At the end of each players turn,");
-        Console.WriteLine("he may discard 1 order card and");
+        Console.WriteLine("he may discard 1 Order card to");
         Console.WriteLine("move the stranded up to 2 areas.");
         Console.WriteLine("If the Stranded is delt 1 or more");
-        Console.WriteLine("wounds, the players lose the");
-        Console.WriteLine("game");
+        Console.WriteLine("wounds, the players lose.");
         Console.WriteLine("OBJECTIVE: The Stranded enters the map exit.\n");
     }
 
     private void StageOneEnd()
     {
-        Console.WriteLine("\nUnlock the level 2 deck and explore it immediatley.\n");
-        Console.WriteLine("Any dropped ammunition tokens remain on the map,");
-        Console.WriteLine("but no additional ammunition tokens can be placed.\n");
-        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
+        Console.WriteLine("\nYou manage to find enough intel to lead you to the Stranded's outpost");
+        Console.WriteLine("You can hear the cries of raging battle, and from the sound of");
+        Console.WriteLine("things, your assistance is desperately needed.");
+        Console.WriteLine("\nUnlock the level 2 Location deck and immediately explore it.");
+        Console.WriteLine("\nAmmo tokens remain on the map, but additional ammo tokens");
+        Console.WriteLine("may no longer be placed on the map.\n");
+        Console.WriteLine("\nTHEN PROCEED TO THE NEXT STAGE");
         DisplayLocationCardDeck(1);
     }
 
     private void StageTwoEnd()
     {
-
-        Console.WriteLine("\nPlace the padlock token ont he map 17B in the area with");
+        Console.WriteLine("The Stranded: It's about time you COGs got here! We have to move!");
+        Console.WriteLine("But you guys will have to cover me. I can't carry all this gear and");
+        Console.WriteLine("fight off Locust at the same time!");
+        Console.WriteLine("\nPlace the padlock token on the map 17B in the area with");
         Console.WriteLine("the equipment icon.\n");
         Console.WriteLine("This token represents the stranded and is considered a COG figure");
         Console.WriteLine("only during activation of locusts, and has a defense value of 2.\n");
         Console.WriteLine("Spawn 1 Locust type C for each player at the exit of the map.");
-        Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-        DisplayLocationCardDeck(1);
+        Console.WriteLine("\nTHEN PROCEED TO THE NEXT STAGE");
     }
     private void MissionEnd()
     {
