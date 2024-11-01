@@ -149,7 +149,7 @@ class LocustAiCardDeck
 
         //General
         _locustAiCardDeck.Add(117, new LocustAiCard("EVENT -GENERAL\n", "UNSTOPPABLE CHARGE:\n Each Locust moves 1 area toward then\n nearest COG,\n then each player spawns 1 Locust A at\n the emergence hole nearest him.\n\n Guards reactions may not be used while\n resolving this card.\n\n Then draw a new AI card", "", true));
-        _locustAiCardDeck.Add(118, new LocustAiCard("EVENT -GENERAL\n", "UNSTOPPABLE CHARGE:\n Each Locust moves 1 area toward then\n nearest COG,\n then each player spawns 1 Locust A at\n the emergence hole nearest him.\n\n Guards reactions may not be used while\n resolving this card.\n\n Then draw a new AI card", "", true));
+        _locustAiCardDeck.Add(118, new LocustAiCard("EVENT -GENERAL\n", "ESCORT:\nEach Locust B moves 3 areas toward\nthe nearest COG,\nEach time a locust B moves from an\narea, each Locust A or C in that area \nmoves with the Locust B to it's new\narea.\n\nEach Locust B that did not move attacks \na COG in it's own space\n\nThen draw a new AI card.", "", true));
         _locustAiCardDeck.Add(119, new LocustAiCard("EVENT -GENERAL\n", "IF 1 OR MORE AMMO TOKEN IS ON THE MAP:\n Each player discards 1 ammo token\n from the map.\n\n Each player that could not discard an\n ammo token spawns 1 Locust A at the\n emergence hole nearest him.\n\n", "OTHERWISE:\n Spawn 1 Butcher at the map entrance.\n Each Locust then moves 1 area towards\n you.", true)); //Double check grammar
     }
 
@@ -382,7 +382,7 @@ class LocustAiCardDeck
 
     private void PopulateMissionEightCards(int stageNumber)
     {
-        if (stageNumber == 1)
+        if (stageNumber is 1)
         {
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[117]);
             _missionlocustAiCardDeck.Add(_locustAiCardDeck[118]);

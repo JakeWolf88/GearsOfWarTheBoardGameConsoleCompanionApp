@@ -90,7 +90,6 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
                 case "Y":
                     _isStageOneActivated = false;
                     _isStageTwoActivated = true;
-                    _stageNumber = 2;
                     DisplayLocationCardDeck(1);
                     break;
                 case "N":
@@ -182,7 +181,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("Spawn 1 Locust type A for each player on every");
         Console.WriteLine("emergence hole on the map.");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-        CreateLocustAiCardDeck(2);
+        CreateLocustAiCardDeck(_stageNumber);
     }
     private void MissionEnd()
     {
@@ -190,7 +189,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         SetupAudioOneTime(GearsOfWarMission.BasePath + @"\Music\GearsofWarInGameMusicBossBattleVictory.mp3");
         Console.WriteLine("\nYou charge toward the wounded General, hoping to finish him off.");
         Console.WriteLine("But before you can reach him, his loyal kryll descend from the sky,");
-        Console.WriteLine("\tforcing you to retreat.");
+        Console.WriteLine("forcing you to retreat.");
         Console.WriteLine("You hear his voice above the shrieks, swearing revenge in his");
         Console.WriteLine("guttural tongue.\n");
         Console.WriteLine("You have a feeling you'll be meeting again real soon...\n");

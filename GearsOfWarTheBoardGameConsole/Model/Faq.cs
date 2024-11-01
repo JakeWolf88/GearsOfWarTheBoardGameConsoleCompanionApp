@@ -71,9 +71,9 @@ namespace GearsOfWarTheBoardGameConsole.Model
             Console.WriteLine("enemy in order to attack it.\n");
             Console.WriteLine("LOCUSTS AND AI\n");
             Console.WriteLine("Q: The \"Firefight\" AI card says \"Then, each Locust that did");
-            Console.WriteLine("notattack 2 areas\". Does this refer to ALL Locust");
+            Console.WriteLine("not attack 2 areas\". Does this refer to ALL Locust");
             Console.WriteLine("figures in play or just the ones that are listed on the card?");
-            Console.WriteLine("A: This reveres to every Locust in play (and not just the");
+            Console.WriteLine("A: This referes to every Locust in play (and not just the");
             Console.WriteLine("ones listed on the card).\n");
             Console.WriteLine("Q: When a Locust figure moves and then attacks, does it");
             Console.WriteLine("\"take cover\" before or after attacking?");
