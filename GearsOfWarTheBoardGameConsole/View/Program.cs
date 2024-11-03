@@ -63,17 +63,17 @@ void BaseMissions()
 {
     int playerCount = SelectPlayerCount();
     Console.WriteLine("\n \n Select Your Mission: \n");
-    Console.WriteLine("1- Emergence");
-    Console.WriteLine("2- China Shop");
-    Console.WriteLine("3- Belly Of The Beast");
-    Console.WriteLine("4- Roadblocks");
+    Console.WriteLine("1 - Emergence");
+    Console.WriteLine("2 - China Shop");
+    Console.WriteLine("3 - Belly Of The Beast");
+    Console.WriteLine("4 - Roadblocks");
     if (playerCount is not 1)
     {
-        Console.WriteLine("5- Scattered");
+        Console.WriteLine("5 - Scattered");
     }
-    Console.WriteLine("6- Hive");
-    Console.WriteLine("7- Horde Mode\n");
-    Console.WriteLine("8- Back To Main Menu\n");
+    Console.WriteLine("6 - Hive");
+    Console.WriteLine("7 - Horde Mode\n");
+    Console.WriteLine("8 - Back To Main Menu\n");
 
     switch (Console.ReadLine())
     {
@@ -127,9 +127,9 @@ void MissionPackOne()
 {
     int playerCount = SelectPlayerCount();
     Console.WriteLine("\n \n Select Your Mission: \n");
-    Console.WriteLine("1- The Showdown");
-    Console.WriteLine("2- Search For The Stranded\n");
-    Console.WriteLine("3- Back To Main Menu\n");
+    Console.WriteLine("1 - The Showdown");
+    Console.WriteLine("2 - Search For The Stranded\n");
+    Console.WriteLine("3 - Back To Main Menu\n");
 
     switch (Console.ReadLine())
     {

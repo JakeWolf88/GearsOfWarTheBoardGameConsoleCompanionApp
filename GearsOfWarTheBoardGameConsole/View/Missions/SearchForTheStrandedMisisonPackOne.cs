@@ -167,7 +167,6 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("OBJECTIVE: There are a number of ammunition");
         Console.WriteLine("tokens on this card equal to twice");
         Console.WriteLine("the number of players\n");
-
     }
 
     private void StageTwoBanner()
@@ -212,6 +211,7 @@ class SearchForTheStrandedMisisonPackOne : GearsOfWarMission
         Console.WriteLine("only during activation of locusts, and has a defense value of 2.\n");
         Console.WriteLine("Spawn 1 Locust type C for each player at the exit of the map.");
         Console.WriteLine("\nTHEN PROCEED TO THE NEXT STAGE");
+        StageThreeBanner();
     }
     private void MissionEnd()
     {
