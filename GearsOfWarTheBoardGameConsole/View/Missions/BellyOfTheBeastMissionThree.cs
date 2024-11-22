@@ -169,7 +169,7 @@ public class BellyOfTheBeastMissionThree : GearsOfWarMission
         CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar.mp3");
         CreateLocustAiCardDeck(1);
-        //TODO: Press Y to Continue
+        StageTwoBanner();
     }
 
     private void MissionEnd()

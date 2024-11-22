@@ -174,6 +174,7 @@
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
             CreateLocustAiCardDeck(2);
             PlayerSelectsLocationDeck();
+            StageTwoBanner();
         }
 
         private void MissionEnd()

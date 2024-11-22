@@ -166,6 +166,7 @@
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
             CancelMusic();
             SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\GearsOfWar2SoundTrack\InsurmountableOdds.mp3");
+            StageTwoBanner();
         }
 
         private void MissionEnd()

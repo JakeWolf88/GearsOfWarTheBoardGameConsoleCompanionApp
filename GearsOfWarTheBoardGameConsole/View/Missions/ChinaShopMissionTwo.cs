@@ -178,7 +178,7 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("See Berserker enemy card\n");
         Console.WriteLine("OBJECTIVE: The Berserker moves");
         Console.WriteLine("into the map exit");
-        Console.WriteLine("Ther Berserker is killed.");
+        Console.WriteLine("The Berserker is killed.");
     }
 
     private void StageOneEnd()
@@ -191,9 +191,8 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("Fenix: Well, unfortunately all we need to do is get her to follow us.\"\n");
         Console.WriteLine("Unlock the level 2 Location deck and explore it.\n");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
-
-        //TODO: Press Y to Continue
         DisplayLocationCardDeck(1);
+        StageTwoBanner();
     }
 
     private void StageTwoEnd()
@@ -204,9 +203,8 @@ class ChinaShopMissionTwo : GearsOfWarMission
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
         CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\MinhsDeath.mp3");
-
-        //TODO: Press Y to Continue
         DisplayLocationCardDeck(2);
+        StageThreeBanner();
     }
     private void MissionEnd()
     {

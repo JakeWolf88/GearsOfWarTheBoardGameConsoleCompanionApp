@@ -11,7 +11,7 @@
 
         public ScatteredMissionFive(int numberOfPlayers, int missionNumber) : base(numberOfPlayers, missionNumber)
         {
-            //TODO: Figure out a way to properly disply location deck AI based on number of players and add music!
+            //TODO: Figure out a way to properly disply location deck AI based on number of players
             _numberOfPlayers = numberOfPlayers;
             _isStageOneActivated = true;
             IsGameStillGoing = true;
@@ -212,6 +212,7 @@
             Console.WriteLine("Explore level 3 of the map, spawning Locust figures based on the");
             Console.WriteLine("number of players on that map. Then place a door at the end of level 3.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+            StageTwoBanner();
         }
 
         private void StageTwoEnd()
@@ -225,6 +226,7 @@
             Console.WriteLine("Grinder on any empty area of Map Tile 17B. In a four-player game,");
             Console.WriteLine("Kantus and Boomer figures may be used as Grinders.\n");
             Console.WriteLine("THEN PROCEED TO THE NEXT STAGE\n");
+            StageThreeBanner();
         }
 
         private void MissionEnd()
@@ -240,7 +242,6 @@
         private void MissionSpecifics()
         {
             Console.WriteLine("Would you like to view the Mission Specifics Y/N?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -251,7 +252,6 @@
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Console.WriteLine("\nSCATTERED\n");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Maps Size: ");
@@ -306,7 +306,6 @@
             Console.WriteLine("\tfigures' wound markers (excluding dropped wapons).\n");
             Console.WriteLine("Press Y to contine");
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             switch (Console.ReadLine().ToUpper())
             {
                 case "Y":
@@ -315,7 +314,6 @@
                     MissionSpecifics();
                     break;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
     }

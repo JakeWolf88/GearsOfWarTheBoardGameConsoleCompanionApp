@@ -172,6 +172,7 @@ class EmergenceMissionOne : GearsOfWarMission
         Console.WriteLine("and each Drone 1 area towards the nearest COG");
         CancelMusic();
         SetupAudioContinually(GearsOfWarMission.BasePath + @"\Music\AttackOfTheDrones.mp3");
+        StageTwoBanner();
     }
     private void MissionEnd()
     {

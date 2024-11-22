@@ -182,6 +182,7 @@ public class TheShowDownMissionPackOne: GearsOfWarMission
         Console.WriteLine("emergence hole on the map.");
         Console.WriteLine("THEN PROCEED TO THE NEXT STAGE");
         CreateLocustAiCardDeck(_stageNumber);
+        StageTwoBanner();
     }
     private void MissionEnd()
     {
